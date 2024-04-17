@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>新标签页 | sherlma23</title>
     <meta name="keywords" content="正经导航、网址大全、网址导航、免费收录、网址大全">
     <meta name="description" content="正经导航网,为朋友们提供一站式优质服务">
@@ -15,259 +17,330 @@
     <link rel='stylesheet' id='style-css' href='./nav/static/css/style.min.css' type='text/css' media='all'>
     <script src='./nav/static/js/jquery.min.js' id='jquery-js'></script>
 </head>
+
 <body class="user-bookmark-body bookmark-default">
 
-<div class="page-container">
-    <div class="bookmark-bg">
-        <div class="img-bg" id="img-bg"></div>
-        <div class="gradient-linear"></div>
-    </div>
-    <header class="navbar navbar-dark fixed-top">
-        <div class="weather">
-            <div id="he-plugin-simple" style="display: contents;"></div>
-            <script>
-                WIDGET = {
-                    "CONFIG": {
-                        "modules": "02",
-                        "background": "5",
-                        "tmpColor": "FFFFFF",
-                        "tmpSize": "20",
-                        "cityColor": "FFFFFF",
-                        "citySize": "16",
-                        "aqiColor": "FFFFFF",
-                        "aqiSize": "16",
-                        "weatherIconSize": "30",
-                        "alertIconSize": "18",
-                        "padding": "0px 5px 0px 5px",
-                        "shadow": "0",
-                        "language": "auto",
-                        "fixed": "false",
-                        "vertical": "top",
-                        "horizontal": "left",
-                        "key": "257fe54e3a0b4cd29b399d2831bd56e0"
+    <div class="page-container">
+        <div class="bookmark-bg">
+            <div class="img-bg" id="img-bg"></div>
+            <div class="gradient-linear"></div>
+        </div>
+        <header class="navbar navbar-dark fixed-top">
+            <div class="weather">
+                <div id="he-plugin-simple" style="display: contents;"></div>
+                <script>
+                    WIDGET = {
+                        "CONFIG": {
+                            "modules": "02",
+                            "background": "5",
+                            "tmpColor": "FFFFFF",
+                            "tmpSize": "20",
+                            "cityColor": "FFFFFF",
+                            "citySize": "16",
+                            "aqiColor": "FFFFFF",
+                            "aqiSize": "16",
+                            "weatherIconSize": "30",
+                            "alertIconSize": "18",
+                            "padding": "0px 5px 0px 5px",
+                            "shadow": "0",
+                            "language": "auto",
+                            "fixed": "false",
+                            "vertical": "top",
+                            "horizontal": "left",
+                            "key": "257fe54e3a0b4cd29b399d2831bd56e0"
+                        }
                     }
-                }
-            </script>
-            <script src="天气接口网址" defer=""></script>
-        </div>
-        
-       
+                </script>
+                <script src="天气接口网址" defer=""></script>
+            </div>
 
-        <ul class="nav navbar-menu">
-            <li class="nav-login ml-3"> <a href="./index1.html" class="text-light" title="主页"><i
-                        class="iconfont icon-home bookmark-ico icon-2x" style="font-size: 1.5em; position: relative; left: -10px; top: 0px;"></i></a> </li>
-        </ul>
-    </header>
-    
-    <div class="header-big mb-4">
-        
-        <div class="s-search">
-            <div id="search" class="s-search mx-auto">
-                
-                
-                <div class="big-title text-center mb-3 mb-md-5 mt-2">
-                    <p class="h1" style="letter-spacing: 6px;">sherlma23</p>
-                    
-                </div>
-                <div id="search-list-menu" class="hide-type-list">
-                    <div class="s-type text-center overflow-x-auto">
-                        <div class="s-type-list big">
-                            <div class="anchor" style="position: absolute; left: 50%; opacity: 0;"></div>
-                            <label for="type-baidu1" class="active" data-id="group-a"><span>常用</span></label>
-                            <label for="type-baidu" data-id="group-b"><span>搜索</span></label>
-                            
-                            <label for="type-zhihu"  data-id="group-d"><span>社区</span></label>
-                            <label for="type-taobao" data-id="group-e"><span>生活</span></label>
-                            <label for="type-juhe" data-id="group-f"><span>影视</span></label>
+
+
+            <ul class="nav navbar-menu">
+                <li class="nav-login ml-3"> <a href="./index1.html" class="text-light" title="主页"><i
+                            class="iconfont icon-home bookmark-ico icon-2x"
+                            style="font-size: 1.5em; position: relative; left: -10px; top: 0px;"></i></a> </li>
+            </ul>
+        </header>
+
+        <div class="header-big mb-4">
+
+            <div class="s-search">
+                <div id="search" class="s-search mx-auto">
+
+
+                    <div class="big-title text-center mb-3 mb-md-5 mt-2">
+                        <p class="h1" style="letter-spacing: 6px;">sherlma23</p>
+
+                    </div>
+                    <div id="search-list-menu" class="hide-type-list">
+                        <div class="s-type text-center overflow-x-auto">
+                            <div class="s-type-list big">
+                                <div class="anchor" style="position: absolute; left: 50%; opacity: 0;"></div>
+                                <label for="type-baidu1" class="active" data-id="group-a"><span>常用</span></label>
+                                <label for="type-baidu" data-id="group-b"><span>搜索</span></label>
+
+                                <label for="type-zhihu" data-id="group-d"><span>社区</span></label>
+                                <label for="type-taobao" data-id="group-e"><span>生活</span></label>
+                                <label for="type-juhe" data-id="group-f"><span>影视</span></label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <form action="/search.html?key=" method="get" target="_blank" class="super-search-fm">
-                    <input type="text" id="search-text" class="form-control smart-tips search-key" zhannei="" placeholder="输入关键字搜索" style="outline:0" autocomplete="off">
-                    <button type="submit"><i class="iconfont icon-search"></i></button>
-                </form>
-                <div id="search-list" class="hide-type-list">
-                    <div class="search-group group-a s-current">
-                        <ul class="search-type">
-                            <li><input checked="checked" hidden="" type="radio" name="type" id="type-baidu1" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label for="type-baidu1"><span class="text-muted">百度</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-google1" value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label for="type-google1"><span class="text-muted">谷歌</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-sogo1" value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label for="type-sogo"><span class="text-muted">搜狗</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-semantic1" value="https://www.semanticscholar.org/search?q=" data-placeholder="Semantic Scholar"><label for="type-semantic1"><span class="text-muted">Semantic</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-googlescholar1" value="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C5&q=" data-placeholder="Google Scholar"><label for="type-googlescholar1"><span class="text-muted">谷歌学术</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-zhiwang1" value="https://kns.cnki.net/kns8s/defaultresult/index?crossids=YSTT4HG0%2CLSTPFY1C%2CJUP3MUPD%2CMPMFIG1A%2CWQ0UVIAA%2CBLZOG7CK%2CEMRPGLPA%2CPWFIRAGL%2CNLBO1Z6R%2CNN3FJMUV&korder=SU&kw=" data-placeholder="知网搜索"><label for="type-zhiwang1"><span class="text-muted">知网</span></label></li>
-                        </ul>
+                    <form action="/search.html?key=" method="get" target="_blank" class="super-search-fm">
+                        <input type="text" id="search-text" class="form-control smart-tips search-key" zhannei=""
+                            placeholder="输入关键字搜索" style="outline:0" autocomplete="off">
+                        <button type="submit"><i class="iconfont icon-search"></i></button>
+                    </form>
+                    <div id="search-list" class="hide-type-list">
+                        <div class="search-group group-a s-current">
+                            <ul class="search-type">
+                                <li><input checked="checked" hidden="" type="radio" name="type" id="type-baidu1"
+                                        value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label
+                                        for="type-baidu1"><span class="text-muted">百度</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-google1"
+                                        value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label
+                                        for="type-google1"><span class="text-muted">谷歌</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-sogo1"
+                                        value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label
+                                        for="type-sogo"><span class="text-muted">搜狗</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-semantic1"
+                                        value="https://www.semanticscholar.org/search?q="
+                                        data-placeholder="Semantic Scholar"><label for="type-semantic1"><span
+                                            class="text-muted">Semantic</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-googlescholar1"
+                                        value="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C5&q="
+                                        data-placeholder="Google Scholar"><label for="type-googlescholar1"><span
+                                            class="text-muted">谷歌学术</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-zhiwang1"
+                                        value="https://kns.cnki.net/kns8s/defaultresult/index?crossids=YSTT4HG0%2CLSTPFY1C%2CJUP3MUPD%2CMPMFIG1A%2CWQ0UVIAA%2CBLZOG7CK%2CEMRPGLPA%2CPWFIRAGL%2CNLBO1Z6R%2CNN3FJMUV&korder=SU&kw="
+                                        data-placeholder="知网搜索"><label for="type-zhiwang1"><span
+                                            class="text-muted">知网</span></label></li>
+                            </ul>
+                        </div>
+                        <div class="search-group group-b ">
+                            <ul class="search-type">
+                                <li><input checked="checked" hidden="" type="radio" name="type" id="type-baidu"
+                                        value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label
+                                        for="type-baidu1"><span class="text-muted">百度</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-google"
+                                        value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label
+                                        for="type-google1"><span class="text-muted">谷歌</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-sogo"
+                                        value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label
+                                        for="type-sogo"><span class="text-muted">搜狗</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-bing"
+                                        value="https://cn.bing.com/search?q=" data-placeholder="必应搜索"><label
+                                        for="type-bing1"><span class="text-muted">必应</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-kuake"
+                                        value="https://quark.sm.cn/s?q=" data-placeholder="夸克搜索"><label
+                                        for="type-kuake"><span class="text-muted">夸克</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-zhiwang"
+                                        value="https://kns.cnki.net/kns8s/defaultresult/index?crossids=YSTT4HG0%2CLSTPFY1C%2CJUP3MUPD%2CMPMFIG1A%2CWQ0UVIAA%2CBLZOG7CK%2CEMRPGLPA%2CPWFIRAGL%2CNLBO1Z6R%2CNN3FJMUV&korder=SU&kw="
+                                        data-placeholder="知网搜索"><label for="type-zhiwang"><span
+                                            class="text-muted">知网</span></label></li>
+                            </ul>
+                        </div>
+
+                        <div class="search-group group-d ">
+                            <ul class="search-type">
+                                <li><input hidden="" type="radio" name="type" id="type-zhihu"
+                                        value="https://www.zhihu.com/search?type=content&q="
+                                        data-placeholder="知乎"><label for="type-zhihu"><span
+                                            class="text-muted">知乎</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-wechat"
+                                        value="https://so.csdn.net/so/search?spm=1000.2115.3001.4501&q="
+                                        data-placeholder="CSDN"><label for="type-wechat"><span
+                                            class="text-muted">CSDN</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-weibo"
+                                        value="https://s.weibo.com/weibo/" data-placeholder="微博"><label
+                                        for="type-weibo"><span class="text-muted">微博</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-douban"
+                                        value="https://www.douban.com/search?q=" data-placeholder="豆瓣"><label
+                                        for="type-douban"><span class="text-muted">豆瓣</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-why"
+                                        value="https://ask.seowhy.com/search/?q=" data-placeholder="SEO问答社区"><label
+                                        for="type-why"><span class="text-muted">搜外问答</span></label></li>
+                            </ul>
+                        </div>
+                        <div class="search-group group-e ">
+                            <ul class="search-type">
+                                <li><input hidden="" type="radio" name="type" id="type-taobao"
+                                        value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label
+                                        for="type-taobao1"><span class="text-muted">淘宝</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-jd"
+                                        value="https://search.jd.com/Search?keyword=" data-placeholder="京东"><label
+                                        for="type-jd"><span class="text-muted">京东</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-12306"
+                                        value="https://www.12306.cn/?" data-placeholder="12306"><label
+                                        for="type-12306"><span class="text-muted">12306</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-kd100"
+                                        value="https://www.kuaidi100.com/?" data-placeholder="快递100"><label
+                                        for="type-kd100"><span class="text-muted">快递100</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-qunar"
+                                        value="https://www.qunar.com/?" data-placeholder="去哪儿"><label
+                                        for="type-qunar"><span class="text-muted">去哪儿</span></label></li>
+                            </ul>
+                        </div>
+                        <div class="search-group group-f ">
+                            <ul class="search-type">
+                                <li><input hidden="" type="radio" name="type" id="type-juhe"
+                                        value="https://www.cupfox.com/search?key=" data-placeholder="影视资源聚合搜索"><label
+                                        for="type-juhe"><span class="text-muted">聚合搜索</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-555"
+                                        value="https://www.o8tv.com/vodsearch/-------------.html?wd="
+                                        data-placeholder="在线影视搜索"><label for="type-555"><span
+                                            class="text-muted">555电影</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-dyxs"
+                                        value="http://dyxs15.com/search--------------/?wd="
+                                        data-placeholder="在线影视搜索"><label for="type-dyxs"><span
+                                            class="text-muted">电影先生</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-dibi"
+                                        value="https://www.mp4er.cc/search/" data-placeholder="在线及下载影视搜索"><label
+                                        for="type-dibi"><span class="text-muted">哔嘀影视</span></label></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="search-group group-b ">
-                        <ul class="search-type">
-                            <li><input checked="checked" hidden="" type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label for="type-baidu1"><span class="text-muted">百度</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label for="type-google1"><span class="text-muted">谷歌</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-sogo" value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label for="type-sogo"><span class="text-muted">搜狗</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="必应搜索"><label for="type-bing1"><span class="text-muted">必应</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-kuake" value="https://quark.sm.cn/s?q=" data-placeholder="夸克搜索"><label for="type-kuake"><span class="text-muted">夸克</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-zhiwang" value="https://kns.cnki.net/kns8s/defaultresult/index?crossids=YSTT4HG0%2CLSTPFY1C%2CJUP3MUPD%2CMPMFIG1A%2CWQ0UVIAA%2CBLZOG7CK%2CEMRPGLPA%2CPWFIRAGL%2CNLBO1Z6R%2CNN3FJMUV&korder=SU&kw=" data-placeholder="知网搜索"><label for="type-zhiwang"><span class="text-muted">知网</span></label></li>
-                        </ul>
+                    <div class="card search-smart-tips" style="display: none">
+                        <ul></ul>
                     </div>
-                    
-                    <div class="search-group group-d ">
-                        <ul class="search-type">
-                            <li><input hidden="" type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?type=content&q=" data-placeholder="知乎"><label for="type-zhihu"><span class="text-muted">知乎</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-wechat" value="https://so.csdn.net/so/search?spm=1000.2115.3001.4501&q=" data-placeholder="CSDN"><label for="type-wechat"><span class="text-muted">CSDN</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-weibo" value="https://s.weibo.com/weibo/" data-placeholder="微博"><label for="type-weibo"><span class="text-muted">微博</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-douban" value="https://www.douban.com/search?q=" data-placeholder="豆瓣"><label for="type-douban"><span class="text-muted">豆瓣</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-why" value="https://ask.seowhy.com/search/?q=" data-placeholder="SEO问答社区"><label for="type-why"><span class="text-muted">搜外问答</span></label></li>
-                        </ul>
-                    </div>
-                    <div class="search-group group-e ">
-                        <ul class="search-type">
-                            <li><input hidden="" type="radio" name="type" id="type-taobao" value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label for="type-taobao1"><span class="text-muted">淘宝</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-jd" value="https://search.jd.com/Search?keyword=" data-placeholder="京东"><label for="type-jd"><span class="text-muted">京东</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-12306" value="https://www.12306.cn/?" data-placeholder="12306"><label for="type-12306"><span class="text-muted">12306</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-kd100" value="https://www.kuaidi100.com/?" data-placeholder="快递100"><label for="type-kd100"><span class="text-muted">快递100</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-qunar" value="https://www.qunar.com/?" data-placeholder="去哪儿"><label for="type-qunar"><span class="text-muted">去哪儿</span></label></li>
-                        </ul>
-                    </div>
-                    <div class="search-group group-f ">
-                        <ul class="search-type">
-                            <li><input hidden="" type="radio" name="type" id="type-juhe" value="https://www.cupfox.com/search?key=" data-placeholder="影视资源聚合搜索"><label for="type-juhe"><span class="text-muted">聚合搜索</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-555" value="https://www.o8tv.com/vodsearch/-------------.html?wd=" data-placeholder="在线影视搜索"><label for="type-555"><span class="text-muted">555电影</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-dyxs" value="http://dyxs15.com/search--------------/?wd=" data-placeholder="在线影视搜索"><label for="type-dyxs"><span class="text-muted">电影先生</span></label></li>
-                            <li><input hidden="" type="radio" name="type" id="type-dibi" value="https://www.mp4er.cc/search/" data-placeholder="在线及下载影视搜索"><label for="type-dibi"><span class="text-muted">哔嘀影视</span></label></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card search-smart-tips" style="display: none">
-                    <ul></ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <section class="quick-sites position-relative">
-        <div class="container text-center px-5">
-            <div class="row"> 
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" 
-                    href="https://scholar.google.com/" title="谷歌学术" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/google_scholar.png"
-                                data-src="./ico/google_scholar.png" onerror="javascript:this.src='./ico/google_scholar.png'" alt="Google Scholar">
+        <section class="quick-sites position-relative">
+            <div class="container text-center px-5">
+                <div class="row">
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://scholar.google.com/" title="谷歌学术" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/google_scholar.png"
+                                    data-src="./ico/google_scholar.png"
+                                    onerror="javascript:this.src='./ico/google_scholar.png'" alt="Google Scholar">
+                            </div>
                         </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>谷歌学术</span></div>
-                </a>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>谷歌学术</span></div>
+                    </a>
 
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" 
-                    href="https://github.com/" title="Github" rel="noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/github.png"
-                                data-src="./ico/github.png" onerror="javascript:this.src='./ico/github.png'"
-                                alt="Github"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Github</span>
-                    </div>
-                </a>                               
-                
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://www.zhihu.com/" title="知乎" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/zhihu.png"
-                                data-src="./ico/zhihu.png" onerror="javascript:this.src='./ico/zhihu.png'" alt="知乎"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>知乎</span>
-                    </div>
-                </a> 
-
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" href="https://www.semanticscholar.org/"
-                    title="Semantic Scholar" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/semantic_scholar.png"
-                                data-src="./ico/semantic_scholar.png" onerror="javascript:this.src='./ico/semantic_scholar.png'" alt="Semantic Scholar">
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" href="https://github.com/"
+                        title="Github" rel="noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/github.png"
+                                    data-src="./ico/github.png" onerror="javascript:this.src='./ico/github.png'"
+                                    alt="Github"> </div>
                         </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Semantic Scholar</span></div>
-                </a>
-
-                
-
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://dblp.org/" title="DBLP" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/dblp.ico"
-                                data-src="./ico/dblp.ico" onerror="javascript:this.src='./ico/dblp.ico'" alt="DBLP"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>DBLP</span></div>
-                </a>
-                
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://outlook.live.com/mail/0/" title="Outlook" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/outlook.ico"
-                                data-src="./ico/outlook.ico" onerror="javascript:this.src='./ico/outlook.ico'"
-                                alt="Outlook"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Outlook</span></div>
-                </a> 
-                
-                 
-                
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="http://jianying.space/conference-ranking.html" title="安全顶会" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/qiantu.png"
-                                data-src="./ico/qiantu.png" onerror="javascript:this.src='./ico/qiantu.png'" alt="安全顶会">
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Github</span>
                         </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>安全顶会</span></div>
-                </a> 
-                
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://yiyan.baidu.com/"
-                    title="文心一言" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/wenxinyiyan.png"
-                                data-src="./ico/wenxinyiyan.png" onerror="javascript:this.src='./ico/wenxinyiyan.png'" alt="文心一言">
-                        </div> 
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>文心一言</span></div>
-                </a> 
-                
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://cn.bing.com/dict/" title="Bing词典"
-                    rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/bing.png"
-                                data-src="./ico/bing.png" onerror="javascript:this.src='./ico/bing.png'" alt="Bing词典">
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" href="https://www.zhihu.com/"
+                        title="知乎" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/zhihu.png"
+                                    data-src="./ico/zhihu.png" onerror="javascript:this.src='./ico/zhihu.png'" alt="知乎">
+                            </div>
                         </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Bing词典</span></div>
-                </a>                                          
-                              
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://app.grammarly.com/" title="Grammarly" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/grammarly.png"
-                                data-src="./ico/grammarly.png" onerror="javascript:this.src='./ico/grammarly.png'"
-                                alt="Grammarly"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Grammarly</span></div>
-                </a> 
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>知乎</span>
+                        </div>
+                    </a>
 
-                <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
-                    href="https://www.bilibili.com/" title="哔哩哔哩" rel="external nofollow noopener">
-                    <div class="d-flex mb-2">
-                        <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/bilibili.png"
-                                data-src="./ico/bilibili.png" onerror="javascript:this.src='./ico/bilibili.png'"
-                                alt="哔哩哔哩"> </div>
-                    </div>
-                    <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>哔哩哔哩</span></div>
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://www.semanticscholar.org/" title="Semantic Scholar"
+                        rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy"
+                                    src="./ico/semantic_scholar.png" data-src="./ico/semantic_scholar.png"
+                                    onerror="javascript:this.src='./ico/semantic_scholar.png'" alt="Semantic Scholar">
+                            </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Semantic Scholar</span>
+                        </div>
+                    </a>
 
-                </a> 
 
-                
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" href="https://dblp.org/"
+                        title="DBLP" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/dblp.ico"
+                                    data-src="./ico/dblp.ico" onerror="javascript:this.src='./ico/dblp.ico'" alt="DBLP">
+                            </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>DBLP</span></div>
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://outlook.live.com/mail/0/" title="Outlook" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/outlook.ico"
+                                    data-src="./ico/outlook.ico" onerror="javascript:this.src='./ico/outlook.ico'"
+                                    alt="Outlook"> </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Outlook</span></div>
+                    </a>
+
+
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="http://jianying.space/conference-ranking.html" title="安全顶会"
+                        rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/qiantu.png"
+                                    data-src="./ico/qiantu.png" onerror="javascript:this.src='./ico/qiantu.png'"
+                                    alt="安全顶会">
+                            </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>安全顶会</span></div>
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank" href="https://yiyan.baidu.com/"
+                        title="文心一言" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/wenxinyiyan.png"
+                                    data-src="./ico/wenxinyiyan.png"
+                                    onerror="javascript:this.src='./ico/wenxinyiyan.png'" alt="文心一言">
+                            </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>文心一言</span></div>
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://cn.bing.com/dict/" title="Bing词典" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/bing.png"
+                                    data-src="./ico/bing.png" onerror="javascript:this.src='./ico/bing.png'"
+                                    alt="Bing词典">
+                            </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Bing词典</span></div>
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://app.grammarly.com/" title="Grammarly" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/grammarly.png"
+                                    data-src="./ico/grammarly.png" onerror="javascript:this.src='./ico/grammarly.png'"
+                                    alt="Grammarly"> </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>Grammarly</span></div>
+                    </a>
+
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" target="_blank"
+                        href="https://www.bilibili.com/" title="哔哩哔哩" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                            <div class="sites-icon mx-auto ub-blur-bg"> <img class="lazy" src="./ico/bilibili.png"
+                                    data-src="./ico/bilibili.png" onerror="javascript:this.src='./ico/bilibili.png'"
+                                    alt="哔哩哔哩"> </div>
+                        </div>
+                        <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1"><span>哔哩哔哩</span></div>
+
+                    </a>
+
+
+                </div>
+
             </div>
 
-        </div> 
-        
-    </section>
+        </section>
 
 
 
@@ -275,38 +348,40 @@
 
 
 
-    <footer class="main-footer footer-type-1 position-relative text-xs">
-        
-        <center>
-            <!--天气插件代码
+        <footer class="main-footer footer-type-1 position-relative text-xs">
+
+            <center>
+                <!--天气插件代码
             <iframe width="994" scrolling="no" height="90" frameborder="0" allowtransparency="true" 
                 src="https://i.tianqi.com?c=code&id=39&color=%23FFFFFF&icon=1&py=minhou&num=5&site=12">
             </iframe>
             -->
-            <iframe allowtransparency="true" frameborder="0" width="575" height="96" scrolling="no" src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=0&v=0&d=5&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=575&h=96&align=center"></iframe>
-        </center>
+                <iframe allowtransparency="true" frameborder="0" width="575" height="96" scrolling="no"
+                    src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=0&v=0&d=5&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=575&h=96&align=center"></iframe>
+            </center>
 
-        <div id="footer-tools" class="d-flex flex-column">
-            <div id="footer-tools" class="d-flex flex-column"> <a href="javascript:" id="go-to-up"
-                class="btn rounded-circle go-up m-1" rel="go-top" style="display: none;" one-link-mark="yes"> <i
-                    class="iconfont icon-to-up"></i> </a> </div>
-        </div>
-        <div class="footer-inner text-center text-light my-3" style="color: #f8f9fa45!important;">
-            <div class="footer-text">
-                欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
+            <div id="footer-tools" class="d-flex flex-column">
+                <div id="footer-tools" class="d-flex flex-column"> <a href="javascript:" id="go-to-up"
+                        class="btn rounded-circle go-up m-1" rel="go-top" style="display: none;" one-link-mark="yes"> <i
+                            class="iconfont icon-to-up"></i> </a> </div>
             </div>
+            <div class="footer-inner text-center text-light my-3" style="color: #f8f9fa45!important;">
+                <div class="footer-text">
+                    欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
+                </div>
                 <div class="footer-text">
                     Copyright © 2024 一个正经的导航 Designed by Zhiqiang Ma
                 </div>
             </div>
-    </footer>
-</div>
-<script src="./nav/static/js/bing.js"></script>
-<script src="./nav/static/js/popper.min.js"></script>
-<script src='./nav/static/js/bootstrap.min.js' id='bootstrap-js'></script>
-<script src="./nav/static/js/theia-sticky-sidebar.js"></script>
-<script src='./nav/static/js/lazyload.min.js' id='lazyload-js'></script>
-<script src='./nav/static/js/app.min.js' id='appjs-js'></script>
+        </footer>
+    </div>
+    <script src="./nav/static/js/bing.js"></script>
+    <script src="./nav/static/js/popper.min.js"></script>
+    <script src='./nav/static/js/bootstrap.min.js' id='bootstrap-js'></script>
+    <script src="./nav/static/js/theia-sticky-sidebar.js"></script>
+    <script src='./nav/static/js/lazyload.min.js' id='lazyload-js'></script>
+    <script src='./nav/static/js/app.min.js' id='appjs-js'></script>
 
 </body>
+
 </html>
