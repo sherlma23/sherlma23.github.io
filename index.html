@@ -381,8 +381,12 @@
                     欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
                 </div>
                 <div class="footer-text">
-                    Copyright © 2024 一个正经的导航 Designed by Zhiqiang Ma
+                    Copyright © 2024-<span id="currentYear"></span> 一个正经的导航 Designed by Zhiqiang Ma
                 </div>
+                <script>
+                    // 动态获取当前年份
+                    document.getElementById("currentYear").textContent = new Date().getFullYear();
+                </script>
             </div>
         </footer>
     </div>
