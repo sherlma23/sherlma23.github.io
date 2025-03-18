@@ -16,6 +16,55 @@
     <link rel='stylesheet' id='bootstrap-css' href='./nav/static/css/bootstrap.min.css' type='text/css' media='all'>
     <link rel='stylesheet' id='style-css' href='./nav/static/css/style.min.css' type='text/css' media='all'>
     <script src='./nav/static/js/jquery.min.js' id='jquery-js'></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .website-list {
+            margin-top: 20px;
+        }
+
+        .website-item {
+            margin-bottom: 10px;
+        }
+
+        /* 弹窗样式 */
+        .popup {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 8px;
+        }
+
+        .popup-overlay {
+            display: none;
+            /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .popup.show,
+        .popup-overlay.show {
+            display: block;
+            /* 显示弹窗和遮罩层 */
+        }
+    </style>
+
 </head>
 
 <body class="user-bookmark-body bookmark-default">
@@ -186,6 +235,9 @@
                                 <li><input hidden="" type="radio" name="type" id="type-juhe"
                                         value="https://www.cupfox.com/search?key=" data-placeholder="影视资源聚合搜索"><label
                                         for="type-juhe"><span class="text-muted">聚合搜索</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-7080"
+                                        value="https://7080.wang/so.html?id=0&wd=" data-placeholder="在线影视搜索"><label
+                                        for="type-555"><span class="text-muted">7080电影</span></label></li>
                                 <li><input hidden="" type="radio" name="type" id="type-555"
                                         value="https://www.o8tv.com/vodsearch/-------------.html?wd="
                                         data-placeholder="在线影视搜索"><label for="type-555"><span
@@ -349,46 +401,99 @@
 
                 </div>
 
+
+
+
+
+                <!-- 自定义添加书签网站 -->
+                <!-- <div class="row">
+                    <a class="sites-btn col-3 col-md-2 text-center mb-4" title="" rel="external nofollow noopener">
+                        <div class="d-flex mb-2">
+                    
+
+                            <button id="openPopupBtn">添加</button>
+                        </div>
+                       
+                    </a> -->
+
+                <!-- 添加网站按钮 -->
+
+
+
+                <!-- 网站列表 -->
+                <!-- <div class="website-list" id="websiteList"> -->
+                <!-- 动态生成的网站链接会显示在这里 -->
+                <!-- </div> -->
+
+                <!-- 弹窗 -->
+                <!-- <div class="popup-overlay" id="popupOverlay"></div>
+                    <div class="popup" id="websitePopup">
+                        <h2 id="popupTitle">添加网址</h2>
+                        <form id="websiteForm">
+                            <label for="websiteName">网站名称:</label>
+                            <input type="text" id="websiteName" required>
+                            <label for="websiteUrl">网站 URL:</label>
+                            <input type="url" id="websiteUrl" required>
+                            <button type="submit" id="submitBtn">添加</button>
+                            <button type="button" id="closePopupBtn">关闭</button>
+                        </form>
+                    </div> -->
+
+                <!-- 删除确认弹窗 -->
+                <!-- <div class="popup" id="deletePopup">
+                        <h2>确认删除</h2>
+                        <p>确定要删除该网址吗？</p>
+                        <button type="button" id="confirmDeleteBtn">确认</button>
+                        <button type="button" id="cancelDeleteBtn">取消</button>
+                    </div> -->
+
+
+                <script src="./wp-includes/js/autoweb.js"></script>
+
             </div>
-
-        </section>
-
+    </div>
 
 
 
 
+    </section>
 
 
-        <footer class="main-footer footer-type-1 position-relative text-xs">
 
-            <center>
-                <!--天气插件代码
+
+
+
+
+    <footer class="main-footer footer-type-1 position-relative text-xs">
+
+        <center>
+            <!--天气插件代码
             <iframe width="994" scrolling="no" height="90" frameborder="0" allowtransparency="true" 
                 src="https://i.tianqi.com?c=code&id=39&color=%23FFFFFF&icon=1&py=minhou&num=5&site=12">
             </iframe>
             -->
-                <iframe allowtransparency="true" frameborder="0" width="575" height="96" scrolling="no"
-                    src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=0&v=0&d=5&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=575&h=96&align=center"></iframe>
-            </center>
+            <iframe allowtransparency="true" frameborder="0" width="575" height="96" scrolling="no"
+                src="https://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=0&v=0&d=5&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=575&h=96&align=center"></iframe>
+        </center>
 
-            <div id="footer-tools" class="d-flex flex-column">
-                <div id="footer-tools" class="d-flex flex-column"> <a href="javascript:" id="go-to-up"
-                        class="btn rounded-circle go-up m-1" rel="go-top" style="display: none;" one-link-mark="yes"> <i
-                            class="iconfont icon-to-up"></i> </a> </div>
+        <div id="footer-tools" class="d-flex flex-column">
+            <div id="footer-tools" class="d-flex flex-column"> <a href="javascript:" id="go-to-up"
+                    class="btn rounded-circle go-up m-1" rel="go-top" style="display: none;" one-link-mark="yes"> <i
+                        class="iconfont icon-to-up"></i> </a> </div>
+        </div>
+        <div class="footer-inner text-center text-light my-3" style="color: #f8f9fa45!important;">
+            <div class="footer-text">
+                欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
             </div>
-            <div class="footer-inner text-center text-light my-3" style="color: #f8f9fa45!important;">
-                <div class="footer-text">
-                    欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
-                </div>
-                <div class="footer-text">
-                    Copyright © 2024-<span id="currentYear"></span> 学术星航 Designed by Zhiqiang Ma
-                </div>
-                <script>
-                    // 动态获取当前年份
-                    document.getElementById("currentYear").textContent = new Date().getFullYear();
-                </script>
+            <div class="footer-text">
+                Copyright © 2024-<span id="currentYear"></span> 学术星航 Designed by Zhiqiang Ma
             </div>
-        </footer>
+            <script>
+                // 动态获取当前年份
+                document.getElementById("currentYear").textContent = new Date().getFullYear();
+            </script>
+        </div>
+    </footer>
     </div>
     <script src="./nav/static/js/bing.js"></script>
     <script src="./nav/static/js/popper.min.js"></script>
