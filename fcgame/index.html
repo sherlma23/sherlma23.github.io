@@ -1,0 +1,409 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <meta name="x5-orientation" content="landscape">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <title>Noise-Fc-Game </title>
+    <meta name="keywords" content="fc,在线fc游戏,fc在线模拟器,nes在线模拟器,魂斗罗,超级玛丽,忍者龙剑传," />
+    <meta name="description" content="任天堂FC/NES原版ROM在线玩，可以近乎完美的还原fc卡带游戏的视频和声音。" />
+    <link href="css/jsnes.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        .function button,
+        .action button {
+            color: #000;
+        }
+
+        .function button {
+            height: 32px;
+            width: auto;
+        }
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            width: 100vw; /* 占据全屏宽度 */
+            max-width: 100%; /* 确保在小屏幕上不会超过屏幕宽度 */
+            white-space: nowrap; /* 确保文本不换行 */
+        }
+
+        .title-container h1 {
+            font-size: 96px; /* 增大字体大小 */
+            color: #d97c1a;
+            margin: 0;
+            white-space: nowrap; /* 确保文本不换行 */
+        }
+
+        .title-container h2 {
+            font-size: 48px; /* 增大字体大小 */
+            color: #39476f;
+            margin: 0;
+            white-space: nowrap; /* 确保文本不换行 */
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container" id="title-container">
+        <h1>Fc-Game</h1>
+        </br>
+        <h2>游戏轻松时刻</h2>
+    </div>
+    <div class="main">
+        <div class="panel">  
+            <div class="function-area">
+                <div id="screen" class="screen">
+                    <div id="emulator" align="center" style="width:100%;height:100%"></div>
+                </div> 
+            </div>         
+        </div>
+    </div>
+</body>
+<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/nes.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/cpu.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/keyboard.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/mappers.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/papu.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/ppu.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/rom.js" type="text/javascript" charset="utf-8"></script>
+<script src="source/ui.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="lib/debug.mini.js" type="text/javascript" charset="utf-8"></script>   -->
+<!--<script src="lib/nipplejs.min.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="lib/joystick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    var nes;
+    $(function () {
+        // 初始化标题容器
+        var $titleContainer = $('#title-container');
+        nes = new JSNES({
+            'ui': $('#emulator').JSNESUI({
+                "FC精选": [
+        [
+            "忍者猫9合1",
+            "roms/noise/renzhemao9he1.nes"
+        ],
+        [
+            "猫和老鼠3",
+            "roms/noise/maohelaoshu3.nes"
+        ],
+        [
+            "双截龙 ",
+            "roms/noise/shuangjielong .NES"
+        ],
+        [
+            "圣斗士星矢2(中文)",
+            "roms/noise/shengdoushixingshi2(zhongwen).nes"
+        ],
+        [
+            "炸弹人1",
+            "roms/noise/zhadanren1.nes"
+        ],
+        [
+            "星之卡比",
+            "roms/noise/xingzhikabi.nes"
+        ],
+        [
+            "七宝奇谋2",
+            "roms/noise/qibaoqimou2.NES"
+        ],
+        [
+            "炸弹人2",
+            "roms/noise/zhadanren2.nes"
+        ],
+        [
+            "唐老鸭2",
+            "roms/noise/tanglaoya2.nes"
+        ],
+        [
+            "忍者龙剑传3",
+            "roms/noise/renzhelongjianchuan3.nes"
+        ],
+        [
+            "俄罗斯方块",
+            "roms/noise/eluosifangkuai.nes"
+        ],
+        [
+            "忍者龙剑传2",
+            "roms/noise/renzhelongjianchuan2.nes"
+        ],
+        [
+            "双截龙1",
+            "roms/noise/shuangjielong1.nes"
+        ],
+        [
+            "忍者龙剑传1",
+            "roms/noise/renzhelongjianchuan1.nes"
+        ],
+        [
+            "双截龙2",
+            "roms/noise/shuangjielong2.nes"
+        ],
+        [
+            "魂斗罗7",
+            "roms/noise/hundouluo7.nes"
+        ],
+        [
+            "泡泡龙",
+            "roms/noise/paopaolong.nes"
+        ],
+        [
+            "高桥名人的冒险岛2中文",
+            "roms/noise/gaoqiaomingrendemaoxiandao2zhongwen.nes"
+        ],
+        [
+            "塞尔达传说(东方的传说)",
+            "roms/noise/saierdachuanshuo(dongfangdechuanshuo).nes"
+        ],
+        [
+            "街霸12人",
+            "roms/noise/jieba12ren.nes"
+        ],
+        [
+            "阿拉丁",
+            "roms/noise/alading.nes"
+        ],
+        [
+            "洛克人3",
+            "roms/noise/luokeren3.nes"
+        ],
+        [
+            "星际魂斗罗",
+            "roms/noise/xingjihundouluo.nes"
+        ],
+        [
+            "机器猫小叮当",
+            "roms/noise/jiqimaoxiaodingdang.nes"
+        ],
+        [
+            "勇者斗恶龙(J)",
+            "roms/noise/yongzhedouelong(J).nes"
+        ],
+        [
+            "特救指令汉化版1.0",
+            "roms/noise/tejiuzhilinghanhuaban1.0.nes"
+        ],
+        [
+            "恶魔城",
+            "roms/noise/emocheng.nes"
+        ],
+        [
+            "魔神英雄外传",
+            "roms/noise/moshenyingxiongwaizhuan.nes"
+        ],
+        [
+            "快打旋风中文版",
+            "roms/noise/kuaidaxuanfengzhongwenban.nes"
+        ],
+        [
+            "西游记1",
+            "roms/noise/xiyouji1.nes"
+        ],
+        [
+            "围棋大战g",
+            "roms/noise/weiqidazhang.nes"
+        ],
+        [
+            "热血格斗中文",
+            "roms/noise/rexuegedouzhongwen.nes"
+        ],      
+        [
+            "热血进行曲中文版",
+            "roms/noise/rexuejinxingquzhongwenban.nes"
+        ],
+        [
+            "流氓兔",
+            "roms/noise/liumangtu.nes"
+        ],
+        [
+            "空中魂斗罗无敌版",
+            "roms/noise/kongzhonghundouluowudiban.nes"
+        ],
+        [
+            "地底探险",
+            "roms/noise/diditanxian.nes"
+        ],
+        [
+            "南极大冒险",
+            "roms/noise/nanjidamaoxian.nes"
+        ],
+        [
+            "激龟忍者传",
+            "roms/noise/jiguirenzhechuan.nes"
+        ],
+        [
+            "泡泡龙2",
+            "roms/noise/paopaolong2.nes"
+        ],
+        [
+            "兔宝宝大冒险2",
+            "roms/noise/tubaobaodamaoxian2.nes"
+        ],
+        [
+            "最终幻想(龙魂)",
+            "roms/noise/zuizhonghuanxiang(longhun).NES"
+        ],
+        [
+            "松鼠大战3",
+            "roms/noise/songshudazhan3.nes"
+        ],
+        [
+            "松鼠大战2",
+            "roms/noise/songshudazhan2.nes"
+        ],
+        [
+            "勇者斗恶龙3 (J)",
+            "roms/noise/yongzhedouelong3 (J).nes"
+        ],
+        [
+            "双截龙3中文版",
+            "roms/noise/shuangjielong3zhongwenban.nes"
+        ],
+        [
+            "赤影战士",
+            "roms/noise/chiyingzhanshi.nes"
+        ],
+        [
+            "彩虹岛",
+            "roms/noise/caihongdao.nes"
+        ],
+        [
+            "勇者斗恶龙2 (J)",
+            "roms/noise/yongzhedouelong2 (J).nes"
+        ],
+        [
+            "马里奥医生",
+            "roms/noise/maliaoyisheng.nes"
+        ],
+        [
+            "荒野大镖客完全汉化版",
+            "roms/noise/huangyedabiaokewanquanhanhuaban.NES"
+        ],
+        [
+            "功夫猫",
+            "roms/noise/gongfumao.nes"
+        ],
+        [
+            "中国象棋",
+            "roms/noise/zhongguoxiangqi.nes"
+        ],
+        [
+            "雪人兄弟",
+            "roms/noise/xuerenxiongdi.nes"
+        ],
+        [
+            "淘金者(J)",
+            "roms/noise/taojinzhe(J).nes"
+        ]
+    ],
+                "超级玛丽": [
+                    ['超级马里奥1 (W) Super Mario Bros. [!]', 'roms/rom1/(W) Super Mario Bros. [!].nes'],
+                ],
+                "魂斗罗": [
+                    ['魂斗罗1', 'roms/Contra/Contra1(U)30S.nes'],
+                ],
+                "松鼠大作战": [
+                    ['松鼠大作战2', 'roms/xiaoji/squirrelbattle2.nes'],
+                ],
+                "坦克": [
+                    ['坦克 (J) Battle City', 'roms/rom1/(J) Battle City.nes'],
+                ],
+                
+                "其它": [
+                    ['1944', 'roms/xiaoji/1944.nes'],
+                    ['冒险岛3 中文版', 'roms/xiaoji/Island of Adventure3.nes'],
+                    ['三目童子', 'roms/xiaoji/three eyes boy.nes'],
+                ]
+            }),
+            emulateSound:true
+        });
+    // 设置定时器，4秒后隐藏标题容器
+    setTimeout(function () {
+            $titleContainer.fadeOut(500);  // 使用淡出效果隐藏标题容器
+        }, 3200);
+
+        // 在页面加载时重新显示标题容器
+        $(window).on('load', function () {
+            $titleContainer.show();
+        });
+
+        // 在页面刷新时重新显示标题容器
+        $(window).on('beforeunload', function () {
+            $titleContainer.show();
+        });
+    });
+</script>
+<!--[if IE]>
+    <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
+<![endif]-->
+<script>
+    function touchDwon(evt) {
+        nes.keyboard.keyDown({
+            keyCode: evt.keyCode
+        });
+    };
+
+    function touchUp(evt) {
+        nes.keyboard.keyUp({
+            keyCode: evt.keyCode
+        });
+    };
+
+    function select(val) {
+        if (val.substring(0, 1) == "#") {
+            return document.querySelector(val);
+        } else {
+            return document.getElementById(val);
+        }
+    }
+
+    var joystick = new Joystick({
+        el: select("controls-rocker"),
+        mode: 'static',
+        color: "#808080",
+        size: 150,
+        isFourBtn: false,
+        keyCodes: [87, 83, 65, 68],
+        keyCodes2: [104,98,100,102],
+        btn_down_fn: touchDwon,
+        btn_up_fn: touchUp,
+        relative: true,
+    });
+    joystick.init();
+</script>
+<script>
+    //全屏
+    function fullScreen() {
+        nes["ui"].RunZoom();
+        // var element = select("#screen");
+        // if (element.requestFullscreen) {
+        //     element.requestFullscreen();
+        // } else if (element.mozRequestFullScreen) {
+        //     element.mozRequestFullScreen();
+        // } else if (element.msRequestFullscreen) {
+        //     element.msRequestFullscreen();
+        // } else if (element.webkitRequestFullscreen) {
+        //     element.webkitRequestFullScreen();
+        // }
+    }
+</script>
+
+</html>
