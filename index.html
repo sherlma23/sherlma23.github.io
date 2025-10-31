@@ -16,6 +16,9 @@
     <link rel='stylesheet' id='bootstrap-css' href='./nav/static/css/bootstrap.min.css' type='text/css' media='all'>
     <link rel='stylesheet' id='style-css' href='./nav/static/css/style.min.css' type='text/css' media='all'>
     <script src='./nav/static/js/jquery.min.js' id='jquery-js'></script>
+    <link rel='stylesheet' id='iconfontd-css' href='https://at.alicdn.com/t/font_2768144_khli9xs79g.css' type='text/css'
+        media='all'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         body {
@@ -110,6 +113,16 @@
                             class="iconfont icon-home bookmark-ico icon-2x"
                             style="font-size: 1.5em; position: relative; left: -10px; top: 0px;"></i></a> </li>
             </ul>
+
+
+            <!-- 管理网址按钮 - 放在页面左侧 -->
+            <div style="position: fixed; top: 30px; left: 40px; z-index: 1000;">
+                <button id="toggleEditBtn" class="text-light" title="管理网址"
+                    style="background: none; border: none; cursor: pointer; padding: 0;">
+                    <i class="iconfont icon-shoucang bookmark-ico icon-2x" style="font-size: 1.5em;"></i>
+                </button>
+            </div>
+
         </header>
 
 
@@ -404,52 +417,60 @@
 
 
 
-
+                <!-- ********************************** -->
 
                 <!-- 自定义添加书签网站 -->
-                <!-- <div class="row">
-                    <a class="sites-btn col-3 col-md-2 text-center mb-4" title="" rel="external nofollow noopener">
-                        <div class="d-flex mb-2">
-                    
+                <div class="row">
+                    <!-- 工具按钮 -->
+                    <!-- <div class="col-12 mb-3 text-end">
+                        <button id="toggleEditBtn" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-cog"></i> 管理网址
+                        </button>
+                    </div> -->
 
-                            <button id="openPopupBtn">添加</button>
-                        </div>
-                       
-                    </a> -->
+                    <!-- 固定12个位置的网站列表 -->
+                    <div class="website-list row" id="websiteList">
+                        <!-- 动态生成的12个位置 -->
+                    </div>
 
-                <!-- 添加网站按钮 -->
-
-
-
-                <!-- 网站列表 -->
-                <!-- <div class="website-list" id="websiteList"> -->
-                <!-- 动态生成的网站链接会显示在这里 -->
-                <!-- </div> -->
-
-                <!-- 弹窗 -->
-                <!-- <div class="popup-overlay" id="popupOverlay"></div>
+                    <!-- 添加/编辑弹窗 -->
+                    <div class="popup-overlay" id="popupOverlay"></div>
                     <div class="popup" id="websitePopup">
                         <h2 id="popupTitle">添加网址</h2>
                         <form id="websiteForm">
                             <label for="websiteName">网站名称:</label>
                             <input type="text" id="websiteName" required>
-                            <label for="websiteUrl">网站 URL:</label>
-                            <input type="url" id="websiteUrl" required>
-                            <button type="submit" id="submitBtn">添加</button>
-                            <button type="button" id="closePopupBtn">关闭</button>
-                        </form>
-                    </div> -->
 
-                <!-- 删除确认弹窗 -->
-                <!-- <div class="popup" id="deletePopup">
+                            <label for="websiteUrl">网站 URL:</label>
+                            <input type="url" id="websiteUrl" required placeholder="https://example.com">
+
+                            <label for="websiteIcon" style="display: none;">自定义图标 URL (可选):</label>
+                            <input type="url" id="websiteIcon" style="display: none;"
+                                placeholder="https://example.com/favicon.ico">
+
+                            <div class="button-group">
+                                <button type="submit" id="submitBtn">添加</button>
+                                <button type="button" id="closePopupBtn">关闭</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 删除确认弹窗 -->
+                    <div class="popup" id="deletePopup">
                         <h2>确认删除</h2>
                         <p>确定要删除该网址吗？</p>
-                        <button type="button" id="confirmDeleteBtn">确认</button>
-                        <button type="button" id="cancelDeleteBtn">取消</button>
-                    </div> -->
-
+                        <div class="button-group">
+                            <button type="button" id="confirmDeleteBtn">确认</button>
+                            <button type="button" id="cancelDeleteBtn">取消</button>
+                        </div>
+                    </div>
+                </div>
 
                 <script src="./wp-includes/js/autoweb.js"></script>
+                <!-- ********************************** -->
+
+
+
 
             </div>
     </div>
