@@ -1,22 +1,30 @@
-[主版本号.次版本号.修订号] - xxxx-xx-xx
+<span style="color: #d35400;">[主版本号.次版本号.修订号] - xxxx-xx-xx</span>
+
 Added
 Changed
 Fixed
 
 
-[0.1.3] - 2025-12-23
+<span style="color: #d35400;">[0.1.4] - 2025-12-28</span>
+
+Changed
+
+* 修改 Sci-Hub 链接、Library Genesis 链接
+
+
+<span style="color: #d35400;">[0.1.3] - 2025-12-23</span>
 
 Added
 
 * 添加 Google AI Studio 链接
 
-[0.1.2] - 2025-12-15
+<span style="color: #d35400;">[0.1.2] - 2025-12-15</span>
 
 Added
 
 * 添加 即时工具 链接
 
-[0.1.1] - 2025-12-03
+<span style="color: #d35400;">[0.1.1] - 2025-12-03</span>
 
 Added
 
@@ -24,7 +32,7 @@ Added
 * 添加 ./ico/whatsapp.png
 * 修改侧边栏条目名称，增加跳转链接
 
-[0.1.0] - 2025-11-25
+<span style="color: #d35400;">[0.1.0] - 2025-11-25</span>
 
 Added
 
