@@ -9,6 +9,12 @@ Fixed
 Added
 
 * 增加记事本功能：可以关联本地txt文件。在网页记事本修改的内容自动同步到本地 txt 文件中，在本地 txt 文件修改的内容自动同步到网页显示。
+* 增加 notebook-sync.js，提供自动同步功能。
+* 增加 custom.css，主要用来实现 基础的网站列表和弹窗界面的样式。
+
+Changed
+
+* 
 
 <span style="color: #d35400;">[0.1.4] - 2025-12-28</span>
 

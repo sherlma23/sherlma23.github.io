@@ -17,3 +17,4 @@ clearNotebook.addEventListener('click', () => {
         localStorage.setItem('notebook', '');
     }
 });
+
