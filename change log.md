@@ -4,6 +4,11 @@ Added
 Changed
 Fixed
 
+<span style="color: #d35400;">[0.1.5] - 2026-1-19</span>
+
+Added
+
+* 增加记事本功能：可以关联本地txt文件。在网页记事本修改的内容自动同步到本地 txt 文件中，在本地 txt 文件修改的内容自动同步到网页显示。
 
 <span style="color: #d35400;">[0.1.4] - 2025-12-28</span>
 
