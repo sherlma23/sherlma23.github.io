@@ -4,7 +4,7 @@ Added
 Changed
 Fixed
 
-<span style="color: #d35400;">[0.1.5] - 2026-1-19</span>
+<span style="color: #d35400;">[0.1.5] - 2026-1-21</span>
 
 Fixed
 
