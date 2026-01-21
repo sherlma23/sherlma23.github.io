@@ -1,6 +1,6 @@
 // e:\Codes\Navigate\wp-includes\js\notebook-sync.js
 jQuery(document).ready(function ($) {
-    // 记事本功能：导入、关联本地文件(自动保存/同步)
+    // 记事本功能：关联本地文件(自动保存/同步)
     const notebook = document.getElementById('notebook');
     const statusSpan = document.getElementById('noteStatus');
     const linkBtn = document.getElementById('linkNoteBtn');
@@ -14,7 +14,17 @@ jQuery(document).ready(function ($) {
     let isSyncing = false;
     let syncTimer = null;
 
-    // 2. 关联本地文件 (自动保存 + 双向同步)
+    // 统一处理同步中断错误
+    function handleSyncError(err) {
+        console.error('同步异常:', err);
+        statusSpan.textContent = '同步中断，请重新关联';
+        statusSpan.style.color = '#dc3545'; // 红色警示
+        if (syncTimer) clearInterval(syncTimer);
+        syncTimer = null;
+        fileHandle = null;
+    }
+
+    // 2.  关联本地文件 (自动保存 + 双向同步)
     linkBtn.addEventListener('click', async () => {
         if (!window.showOpenFilePicker) {
             alert('您的浏览器不支持文件系统访问API，请使用最新版Chrome或Edge浏览器。');
@@ -36,6 +46,7 @@ jQuery(document).ready(function ($) {
             }
 
             await loadFromFile();
+            statusSpan.style.color = ''; // 重置颜色
             statusSpan.textContent = '已关联本地文件';
 
             // 清除可能存在的旧定时器，防止重复关联导致多重轮询
@@ -44,22 +55,21 @@ jQuery(document).ready(function ($) {
             syncTimer = setInterval(checkForUpdates, 2000);
         } catch (err) {
             console.error('关联失败:', err);
+            statusSpan.textContent = '关联失败';
         }
     });
 
     async function loadFromFile() {
         if (!fileHandle) return;
-        try {
-            const file = await fileHandle.getFile();
-            lastModified = file.lastModified;
-            const text = await file.text();
-            if (notebook.value !== text) {
-                isSyncing = true; // 标记正在同步，避免触发保存
-                notebook.value = text;
-                notebook.dispatchEvent(new Event('input'));
-                isSyncing = false;
-            }
-        } catch (err) { console.error('读取失败:', err); }
+        const file = await fileHandle.getFile();
+        lastModified = file.lastModified;
+        const text = await file.text();
+        if (notebook.value !== text) {
+            isSyncing = true; // 标记正在同步，避免触发保存
+            notebook.value = text;
+            notebook.dispatchEvent(new Event('input'));
+            isSyncing = false;
+        }
     }
 
     async function saveToFile() {
@@ -75,8 +85,7 @@ jQuery(document).ready(function ($) {
             lastModified = file.lastModified;
             statusSpan.textContent = '已保存到本地';
         } catch (err) {
-            console.error('保存失败:', err);
-            statusSpan.textContent = '保存失败';
+            handleSyncError(err);
         } finally {
             isSaving = false;
         }
@@ -92,7 +101,7 @@ jQuery(document).ready(function ($) {
                 await loadFromFile();
                 statusSpan.textContent = '已同步最新内容';
             }
-        } catch (err) { console.error('轮询失败:', err); }
+        } catch (err) { handleSyncError(err); }
     }
 
     // 监听输入事件进行防抖自动保存
