@@ -4,6 +4,13 @@ Added
 Changed
 Fixed
 
+<span style="color: #d35400;">[0.1.7] - 2026-2-4</span>
+
+Added
+
+* 添加 Conference Ranks 链接
+* 添加 Zenodo 链接
+
 <span style="color: #d35400;">[0.1.6] - 2026-1-21</span>
 
 Fixed
