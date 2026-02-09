@@ -4,6 +4,17 @@ Added
 Changed
 Fixed
 
+
+
+
+
+<span style="color: #d35400;">[0.1.8] - 2026-2-9</span>
+
+Added
+
+* 添加 Draw.io 链接: 一个在线画图软件，类似 visio
+
+
 <span style="color: #d35400;">[0.1.7] - 2026-2-4</span>
 
 Added
