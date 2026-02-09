@@ -14,6 +14,25 @@ Added
 
 * 添加 Draw.io 链接: 一个在线画图软件，类似 visio
 
+Changed
+
+* 重新写了 **效率工具** 的代码，简化了代码结构。
+
+* 定义了 efficiencyTools 数组：这个数组包含了“效率工具”部分所有卡片的信息。每个 {...} 就是一个对象，代表一个卡片。
+* createCard(cardData) 函数:
+这个函数是我们的“模板引擎”。它接收一个 cardData 对象作为参数。
+内部使用了 模板字符串 (Template Literals)，也就是用反引号 ` 包裹的字符串。这让我们可以方便地在字符串中通过 ${...} 语法嵌入变量。
+它根据传入的数据，动态生成一个完整的卡片HTML结构，并将其作为字符串返回。
+
+* renderCards(containerId, cardArray) 函数:
+这个函数负责将卡片渲染到页面上。
+它通过 document.getElementById(containerId) 找到我们在HTML中准备好的容器。
+cardArray.map(createCard) 会遍历数据数组，并对数组中的每个元素（每个 cardData 对象）调用 createCard 函数，最终返回一个包含所有卡片HTML字符串的新数组。
+.join('') 将这个数组中的所有HTML字符串连接成一个单一的、巨大的字符串。
+最后，container.innerHTML = ... 将这个巨大的字符串设置为容器的内部HTML，浏览器就会解析并显示出所有的卡片。
+
+* document.addEventListener('DOMContentLoaded', ...): 这是一个事件监听器，它能确保我们的脚本在整个HTML文档被完全加载和解析完毕之后再执行，避免了因脚本在DOM元素创建前执行而找不到容器的错误。
+
 
 <span style="color: #d35400;">[0.1.7] - 2026-2-4</span>
 
