@@ -7,6 +7,11 @@ Fixed
 
 
 
+<span style="color: #d35400;">[0.2.1] - 2026-02-10</span>
+
+Added
+
+* 添加 KMS在线激活链接：免费激活 Windows 系统和 office 办公软件。
 
 <span style="color: #d35400;">[0.2.0] - 2026-2-9</span>
 
