@@ -8,7 +8,7 @@ Fixed
 
 
 
-<span style="color: #d35400;">[0.1.8] - 2026-2-9</span>
+<span style="color: #d35400;">[0.2.0] - 2026-2-9</span>
 
 Added
 
