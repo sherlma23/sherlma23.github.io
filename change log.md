@@ -6,6 +6,12 @@ Fixed
 
 
 
+<span style="color: #d35400;">[0.2.2] - 2026-02-13</span>
+
+Added
+
+* 添加 CloudConvert 链接：免费转换各种文件类型。
+
 
 <span style="color: #d35400;">[0.2.1] - 2026-02-10</span>
 
