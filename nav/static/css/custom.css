@@ -74,3 +74,139 @@ body {
     display: block;
     /* 显示弹窗和遮罩层 */
 }
+
+#notebook[readonly] {
+    cursor: default;
+    background: #fff;
+}
+
+.notebook-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 12px;
+    min-height: 42px;
+}
+
+.notebook-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.notebook-actions .btn {
+    flex: 0 0 auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.notebook-full-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    padding: 6vh 16px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.notebook-full-overlay.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notebook-full-dialog {
+    display: flex;
+    flex-direction: column;
+    width: min(900px, 100%);
+    max-height: 88vh;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    color: #212529;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+}
+
+.notebook-full-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.notebook-full-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.notebook-full-close:hover,
+.notebook-full-close:focus {
+    background: #f1f3f5;
+    color: #212529;
+    outline: none;
+}
+
+.notebook-full-content {
+    display: block;
+    flex: 1;
+    width: 100%;
+    min-height: 260px;
+    max-height: calc(88vh - 62px);
+    margin: 0;
+    padding: 18px;
+    border: 0;
+    outline: none;
+    overflow: auto;
+    resize: none;
+    box-shadow: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: left;
+    background: #fff;
+}
+
+@media (max-width: 575.98px) {
+    .notebook-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .notebook-actions {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .notebook-full-overlay {
+        padding: 5vh 12px;
+    }
+
+    .notebook-full-dialog {
+        max-height: 90vh;
+    }
+
+    .notebook-full-content {
+        min-height: 220px;
+        max-height: calc(90vh - 60px);
+        padding: 14px;
+        font-size: 14px;
+    }
+}

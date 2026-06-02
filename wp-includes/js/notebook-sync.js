@@ -170,12 +170,10 @@ jQuery(document).ready(function ($) {
         saveTimeout = setTimeout(saveToFile, 10000); // 10秒保存一次记事本内容
     });
 
-    clearBtn.addEventListener('click', () => {
-        if (confirm('确定要清空记事本内容吗？\n如果已关联文件，文件内容也将被清空。')) {
-            notebook.value = '';
-            if (fileHandle) {
-                saveToFile();
-            }
+    notebook.addEventListener('notebook:cleared', () => {
+        if (fileHandle) {
+            clearTimeout(saveTimeout);
+            saveToFile();
         }
     });
 

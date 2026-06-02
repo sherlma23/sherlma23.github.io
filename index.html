@@ -427,32 +427,48 @@
 
 
 
-                <!-- ********************************** 记事本  -->
+                <!-- ********************************** 待办事项  -->
 
-                <!-- 简化版记事本 -->
+                <!-- 简化版待办事项 -->
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header py-2">
-                                <h6 class="mb-0"><i class="fas fa-sticky-note"></i> 记事本</h6>
+                                <h6 class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项</h6>
                             </div>
                             <div class="card-body p-0">
-                                <textarea id="notebook" class="form-control border-0" placeholder="在这里记录您的想法..."
-                                    style="height: 120px; resize: none;"></textarea>
+                                <textarea id="notebook" class="form-control border-0" placeholder="点击“全文”编辑待办事项..."
+                                    style="height: 120px; resize: none;" readonly></textarea>
                             </div>
-                            <div class="card-footer py-2 text-muted small">
+                            <div class="card-footer py-2 text-muted small notebook-footer">
                                 <span id="noteStatus">内容自动保存</span>
-                                <div class="float-end">
-                                    <button id="linkNoteBtn" class="btn btn-sm btn-outline-success py-0"
-                                        style="margin-right: 5px;">
+                                <div class="notebook-actions">
+                                    <button id="viewNotebookFull" class="btn btn-sm btn-outline-primary">
+                                        全文
+                                    </button>
+                                    <button id="linkNoteBtn" class="btn btn-sm btn-outline-success">
                                         关联
                                     </button>
-                                    <button id="clearNotebook" class="btn btn-sm btn-outline-danger py-0">
-                                        清空
+                                    <button id="clearNotebook" class="btn btn-sm btn-outline-danger">
+                                        清空内容
                                     </button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div id="notebookFullOverlay" class="notebook-full-overlay" aria-hidden="true">
+                    <div class="notebook-full-dialog" role="dialog" aria-modal="true"
+                        aria-labelledby="notebookFullTitle">
+                        <div class="notebook-full-header">
+                            <h5 id="notebookFullTitle" class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项全文</h5>
+                            <button id="closeNotebookFull" class="notebook-full-close" type="button" aria-label="关闭">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <textarea id="notebookFullContent" class="notebook-full-content"
+                            placeholder="在这里编辑待办事项..."></textarea>
                     </div>
                 </div>
 
@@ -515,7 +531,7 @@
     <script src="./nav/static/js/theia-sticky-sidebar.js"></script>
     <script src='./nav/static/js/lazyload.min.js' id='lazyload-js'></script>
     <script src='./nav/static/js/app.min.js' id='appjs-js'></script>
-    <!-- 引入记事本同步逻辑 -->
+    <!-- 引入待办事项同步逻辑 -->
     <script src="./wp-includes/js/notebook-sync.js"></script>
 
 </body>
