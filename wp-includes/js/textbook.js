@@ -44,6 +44,7 @@
 
     function openNotebookFull() {
         updateFullEditorFromNotebook(true);
+        notebookFullOverlay.hidden = false;
         notebookFullOverlay.classList.add('show');
         notebookFullOverlay.setAttribute('aria-hidden', 'false');
         notebookFullContent.focus();
@@ -55,6 +56,7 @@
     function closeNotebookFullModal() {
         notebookFullOverlay.classList.remove('show');
         notebookFullOverlay.setAttribute('aria-hidden', 'true');
+        notebookFullOverlay.hidden = true;
     }
 
     viewNotebookFull.addEventListener('click', openNotebookFull);
