@@ -1,0 +1,66 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Sherlma mark</title>
+  <desc id="desc">A compact academic navigation icon with an orbit, graduation cap, open book, planet, and sparkle.</desc>
+  <defs>
+    <linearGradient id="bgGradient" x1="16" y1="12" x2="80" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DDF8FF"/>
+    </linearGradient>
+    <linearGradient id="orbitGradient" x1="17" y1="70" x2="80" y2="16" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.45" stop-color="#116DE1"/>
+      <stop offset="0.76" stop-color="#22BDEB"/>
+      <stop offset="1" stop-color="#25D6B8"/>
+    </linearGradient>
+    <linearGradient id="capTopGradient" x1="25" y1="36" x2="72" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.34" stop-color="#1597ED"/>
+      <stop offset="0.58" stop-color="#BFEFFF"/>
+      <stop offset="0.76" stop-color="#1CB8EF"/>
+      <stop offset="1" stop-color="#082D9D"/>
+    </linearGradient>
+    <linearGradient id="capBandGradient" x1="35" y1="53" x2="66" y2="65" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#21D6F2"/>
+      <stop offset="0.56" stop-color="#0B63D4"/>
+      <stop offset="1" stop-color="#061A73"/>
+    </linearGradient>
+    <linearGradient id="bookGradient" x1="28" y1="71" x2="73" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.52" stop-color="#127BE4"/>
+      <stop offset="1" stop-color="#25D6B8"/>
+    </linearGradient>
+    <radialGradient id="planetGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(74 21) rotate(126) scale(10)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.28" stop-color="#8FF7FF"/>
+      <stop offset="0.62" stop-color="#168BEA"/>
+      <stop offset="1" stop-color="#0B43C7"/>
+    </radialGradient>
+    <linearGradient id="sparkleGradient" x1="24" y1="64" x2="37" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.42" stop-color="#8CEBFF"/>
+      <stop offset="1" stop-color="#0B43C7"/>
+    </linearGradient>
+    <filter id="iconShadow" x="4" y="4" width="88" height="88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#083A9B" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect x="6" y="6" width="84" height="84" rx="22" fill="url(#bgGradient)"/>
+  <rect x="6.75" y="6.75" width="82.5" height="82.5" rx="21.25" stroke="#147EE8" stroke-opacity="0.2" stroke-width="1.5"/>
+  <g filter="url(#iconShadow)">
+    <path d="M17 61C24 33 50 17 78 22" stroke="url(#orbitGradient)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M22 78C40 85 70 73 82 48" stroke="url(#orbitGradient)" stroke-opacity="0.86" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M49 34L75 45L49 56L23 45L49 34Z" fill="url(#capTopGradient)"/>
+    <path d="M49 49L75 45L49 56L23 45L49 49Z" fill="#061A73" fill-opacity="0.36"/>
+    <path d="M49 34L75 45L49 56L23 45L49 34Z" stroke="#FFFFFF" stroke-opacity="0.32" stroke-width="1"/>
+    <path d="M35 53C40 59 58 59 64 53V62C57 68 42 68 35 62V53Z" fill="url(#capBandGradient)"/>
+    <path d="M62 47C66 49 69 53 70 58" stroke="#25D6F2" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M70 58V66" stroke="#0B43C7" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="70" cy="68" r="2.7" fill="#25D6B8"/>
+    <path d="M31 75C39 69 46 70 50 77C55 70 64 69 72 75" stroke="url(#bookGradient)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 61V79" stroke="#BFEFFF" stroke-opacity="0.5" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="74" cy="21" r="7.5" fill="url(#planetGradient)"/>
+    <circle cx="71.5" cy="18.5" r="2.2" fill="#FFFFFF" fill-opacity="0.48"/>
+    <path d="M30 64L33.4 73L42 76L33.4 79L30 88L26.6 79L18 76L26.6 73L30 64Z" fill="url(#sparkleGradient)"/>
+  </g>
+</svg>

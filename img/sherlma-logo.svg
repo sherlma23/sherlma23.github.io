@@ -1,0 +1,99 @@
+<svg width="520" height="132" viewBox="0 0 520 132" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">学术星航 Sherlma logo</title>
+  <desc id="desc">An academic navigation logo with an orbit, graduation cap, open book, sparkle star, Chinese wordmark, and Sherlma signature.</desc>
+  <defs>
+    <linearGradient id="orbitGradient" x1="22" y1="96" x2="112" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.42" stop-color="#116DE1"/>
+      <stop offset="0.74" stop-color="#22BDEB"/>
+      <stop offset="1" stop-color="#25D6B8"/>
+    </linearGradient>
+    <linearGradient id="capTopGradient" x1="36" y1="47" x2="100" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.34" stop-color="#1597ED"/>
+      <stop offset="0.58" stop-color="#BFEFFF"/>
+      <stop offset="0.76" stop-color="#1CB8EF"/>
+      <stop offset="1" stop-color="#082D9D"/>
+    </linearGradient>
+    <linearGradient id="capBandGradient" x1="47" y1="67" x2="87" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#21D6F2"/>
+      <stop offset="0.56" stop-color="#0B63D4"/>
+      <stop offset="1" stop-color="#061A73"/>
+    </linearGradient>
+    <linearGradient id="bookGradient" x1="36" y1="88" x2="98" y2="103" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B43C7"/>
+      <stop offset="0.52" stop-color="#127BE4"/>
+      <stop offset="1" stop-color="#25D6B8"/>
+    </linearGradient>
+    <radialGradient id="planetGradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(102 27) rotate(126) scale(15)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.28" stop-color="#8FF7FF"/>
+      <stop offset="0.62" stop-color="#168BEA"/>
+      <stop offset="1" stop-color="#0B43C7"/>
+    </radialGradient>
+    <linearGradient id="sparkleGradient" x1="29" y1="83" x2="45" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.42" stop-color="#8CEBFF"/>
+      <stop offset="1" stop-color="#0B43C7"/>
+    </linearGradient>
+    <linearGradient id="mainTextGradient" x1="143" y1="34" x2="391" y2="69" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#D9F8FF"/>
+      <stop offset="0.72" stop-color="#8CEBFF"/>
+      <stop offset="1" stop-color="#25D6B8"/>
+    </linearGradient>
+    <linearGradient id="smallTextGradient" x1="146" y1="87" x2="280" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#BFEFFF" stop-opacity="0.68"/>
+    </linearGradient>
+    <filter id="markShadow" x="0" y="0" width="132" height="132" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="9" stdDeviation="7" flood-color="#031E73" flood-opacity="0.36"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#45E8FF" flood-opacity="0.22"/>
+    </filter>
+    <filter id="capShadow" x="25" y="35" width="86" height="80" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#031E73" flood-opacity="0.34"/>
+    </filter>
+    <filter id="planetShadow" x="84" y="9" width="38" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#05217D" flood-opacity="0.32"/>
+    </filter>
+    <filter id="textGlow" x="132" y="24" width="340" height="92" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.6" flood-color="#BFEFFF" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#markShadow)">
+    <path d="M23 79C33 40 68 18 107 25" stroke="url(#orbitGradient)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M30 101C54 111 94 96 111 62" stroke="url(#orbitGradient)" stroke-opacity="0.88" stroke-width="3" stroke-linecap="round"/>
+
+    <g filter="url(#capShadow)">
+      <path d="M67 40L104 55L67 69L30 55L67 40Z" fill="url(#capTopGradient)"/>
+      <path d="M67 40L104 55L67 59L30 55L67 40Z" fill="#BFEFFF" fill-opacity="0.25"/>
+      <path d="M67 59L104 55L67 69L30 55L67 59Z" fill="#061A73" fill-opacity="0.36"/>
+      <path d="M67 40L104 55L67 69L30 55L67 40Z" stroke="#FFFFFF" stroke-opacity="0.34" stroke-width="1.2"/>
+
+      <path d="M47 65C54 74 80 74 88 65V77C78 85 57 85 47 77V65Z" fill="url(#capBandGradient)"/>
+      <path d="M52 68C60 73 76 73 84 68" stroke="#BFEFFF" stroke-opacity="0.4" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M84 57C89 59 93 64 94 70" stroke="#25D6F2" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M94 70V80" stroke="#0B43C7" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="94" cy="82" r="3.6" fill="#25D6B8"/>
+
+      <path d="M40 92C51 84 61 85 67 95C74 85 86 84 98 92" stroke="url(#bookGradient)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M36 100C50 90 61 90 67 101C75 90 88 90 102 100" stroke="url(#bookGradient)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M67 74V104" stroke="#BFEFFF" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M53 87C59 89 64 92 67 96" stroke="#BFEFFF" stroke-opacity="0.34" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M81 87C75 89 70 92 67 96" stroke="#BFEFFF" stroke-opacity="0.34" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+
+    <g filter="url(#planetShadow)">
+      <circle cx="102" cy="27" r="10.5" fill="url(#planetGradient)"/>
+      <circle cx="98.5" cy="23.5" r="3.2" fill="#FFFFFF" fill-opacity="0.48"/>
+    </g>
+    <path d="M36 80L40.5 92L52 96L40.5 100L36 112L31.5 100L20 96L31.5 92L36 80Z" fill="url(#sparkleGradient)"/>
+    <path d="M36 88L38.6 94.1L45 96L38.6 97.9L36 104L33.4 97.9L27 96L33.4 94.1L36 88Z" fill="#FFFFFF" fill-opacity="0.62"/>
+  </g>
+
+  <g filter="url(#textGlow)">
+    <text x="142" y="67" fill="url(#mainTextGradient)" font-family="'Noto Sans SC', 'Microsoft YaHei', Arial, sans-serif" font-size="47" font-weight="800" letter-spacing="3">学术星航</text>
+    <text x="146" y="99" fill="url(#smallTextGradient)" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="5">Sherlma</text>
+  </g>
+</svg>
