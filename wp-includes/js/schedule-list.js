@@ -139,6 +139,18 @@
         }
     }
 
+    function updateConnectionControls() {
+        if (fileHandle) {
+            linkBtn.textContent = '断开连接';
+            linkBtn.classList.remove('btn-outline-success');
+            linkBtn.classList.add('btn-outline-secondary');
+        } else {
+            linkBtn.textContent = '关联文件';
+            linkBtn.classList.remove('btn-outline-secondary');
+            linkBtn.classList.add('btn-outline-success');
+        }
+    }
+
     function createId() {
         if (window.crypto && typeof window.crypto.randomUUID === 'function') {
             return window.crypto.randomUUID();
@@ -391,6 +403,7 @@
         syncTimer = null;
         fileHandle = null;
         needsSaveAfterCurrent = false;
+        updateConnectionControls();
     }
 
     function handleSyncError(err) {
@@ -445,11 +458,27 @@
         return normalizeItems(JSON.parse(text));
     }
 
-    async function loadFromFile(writeCurrentIfEmpty) {
+    function mergeMissingBrowserItems(fileItems, browserItems) {
+        const fileIds = new Set(fileItems.map((item) => item.id));
+        const additions = browserItems.filter((item) => !fileIds.has(item.id));
+
+        return {
+            items: fileItems.concat(additions.map((item) => ({ ...item }))),
+            addedCount: additions.length
+        };
+    }
+
+    async function loadFromFile(options) {
         if (!fileHandle) {
-            return;
+            return { addedCount: 0 };
         }
 
+        const opts = {
+            writeCurrentIfEmpty: false,
+            mergeBrowserItems: false,
+            ...(options || {})
+        };
+        const browserItems = items.map((item) => ({ ...item }));
         const file = await fileHandle.getFile();
         const text = await file.text();
         const fileItems = parseFileText(text);
@@ -457,17 +486,33 @@
         lastModified = file.lastModified;
 
         if (fileItems === null) {
-            if (writeCurrentIfEmpty) {
+            const addedCount = opts.writeCurrentIfEmpty ? browserItems.length : 0;
+            if (opts.writeCurrentIfEmpty) {
                 await saveToFile();
             }
-            return;
+            return { addedCount };
+        }
+
+        let nextItems = fileItems;
+        let addedCount = 0;
+
+        if (opts.mergeBrowserItems) {
+            const merged = mergeMissingBrowserItems(fileItems, browserItems);
+            nextItems = merged.items;
+            addedCount = merged.addedCount;
         }
 
         isSyncing = true;
-        items = fileItems;
+        items = nextItems;
         saveLocalItems();
         render();
         isSyncing = false;
+
+        if (addedCount > 0) {
+            await saveToFile();
+        }
+
+        return { addedCount };
     }
 
     async function ensurePermission(handle) {
@@ -490,18 +535,28 @@
 
     async function initializeSync(handle) {
         fileHandle = handle;
+        updateConnectionControls();
 
         try {
             if (!(await ensurePermission(handle))) {
                 fileHandle = null;
                 await idbDel(fileHandleKey);
+                updateConnectionControls();
                 setStatus('文件权限已失效，请重新关联', 'error');
                 return false;
             }
 
-            await loadFromFile(true);
+            const syncResult = await loadFromFile({
+                writeCurrentIfEmpty: true,
+                mergeBrowserItems: true
+            });
             startSyncTimer();
-            setStatus('已关联本地 JSON 文件', 'success');
+            updateConnectionControls();
+            if (syncResult.addedCount > 0) {
+                setStatus(`已关联本地 JSON 文件，已补充 ${syncResult.addedCount} 项浏览器事项`, 'success');
+            } else {
+                setStatus('已关联本地 JSON 文件', 'success');
+            }
             return true;
         } catch (err) {
             stopSync();
@@ -518,7 +573,7 @@
             const file = await fileHandle.getFile();
             if (file.lastModified > lastModified) {
                 setStatus('检测到外部修改，同步中...');
-                await loadFromFile(false);
+                await loadFromFile();
                 setStatus('已同步最新内容', 'success');
             }
         } catch (err) {
@@ -820,7 +875,24 @@
         }
     });
 
+    async function disconnectLinkedFile() {
+        const confirmed = window.confirm('确定要断开当前关联文件吗？断开后，新修改会暂存到浏览器，不会继续写入本地 JSON 文件。');
+        if (!confirmed) {
+            return;
+        }
+
+        stopSync();
+        await idbDel(fileHandleKey).catch((err) => console.error('日程清单文件句柄清理失败:', err));
+        saveLocalItems();
+        setStatus('已断开文件连接，当前内容暂存浏览器');
+    }
+
     linkBtn.addEventListener('click', async () => {
+        if (fileHandle) {
+            await disconnectLinkedFile();
+            return;
+        }
+
         if (!window.showOpenFilePicker) {
             alert('您的浏览器不支持文件系统访问API，请使用最新版Chrome或Edge浏览器。');
             return;
@@ -860,5 +932,6 @@
 
     items = loadLocalItems();
     render();
+    updateConnectionControls();
     tryAutoReconnect();
 })();
