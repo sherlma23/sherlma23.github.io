@@ -21,7 +21,7 @@
         media='all'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="./nav/static/css/custom.css?v=20260602-fullnote">
+    <link rel="stylesheet" href="./nav/static/css/custom.css?v=20260604-schedule-height-500">
 
 </head>
 
@@ -427,30 +427,98 @@
 
 
 
-                <!-- ********************************** 待办事项  -->
+                <template id="notebookDisabledTemplate">
+                    <!-- ********************************** 待办事项  -->
 
-                <!-- 简化版待办事项 -->
+                    <!-- 简化版待办事项 -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header py-2">
+                                    <h6 class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    <textarea id="notebook" class="form-control border-0" placeholder="点击“全文”编辑待办事项..."
+                                        style="height: 120px; resize: none;" readonly></textarea>
+                                </div>
+                                <div class="card-footer py-2 text-muted small notebook-footer">
+                                    <span id="noteStatus">内容自动保存</span>
+                                    <div class="notebook-actions">
+                                        <button id="viewNotebookFull" class="btn btn-sm btn-outline-primary">
+                                            全文
+                                        </button>
+                                        <button id="linkNoteBtn" class="btn btn-sm btn-outline-success">
+                                            关联
+                                        </button>
+                                        <button id="clearNotebook" class="btn btn-sm btn-outline-danger">
+                                            清空内容
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="notebookFullOverlay" class="notebook-full-overlay" aria-hidden="true" hidden>
+                        <div class="notebook-full-dialog" role="dialog" aria-modal="true"
+                            aria-labelledby="notebookFullTitle">
+                            <div class="notebook-full-header">
+                                <h5 id="notebookFullTitle" class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项全文</h5>
+                                <button id="closeNotebookFull" class="notebook-full-close" type="button"
+                                    aria-label="关闭">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <textarea id="notebookFullContent" class="notebook-full-content"
+                                placeholder="在这里编辑待办事项..."></textarea>
+                        </div>
+                    </div>
+
+                    <script src="./wp-includes/js/textbook.js?v=20260602-fullnote"></script>
+
+                    <!-- ********************************** -->
+                </template>
+                <!-- Notebook 已按要求从页面注释掉。 -->
+
+                <!-- ********************************** 日程清单  -->
+
                 <div class="row mt-4">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-header py-2">
-                                <h6 class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项</h6>
+                        <div class="card schedule-card">
+                            <div class="card-header py-2 schedule-header">
+                                <h6 class="mb-0"><i class="fas fa-list-check"></i> 日程清单</h6>
+                                <span id="scheduleSummary" class="schedule-summary">0 项待完成</span>
                             </div>
-                            <div class="card-body p-0">
-                                <textarea id="notebook" class="form-control border-0" placeholder="点击“全文”编辑待办事项..."
-                                    style="height: 120px; resize: none;" readonly></textarea>
+                            <div class="card-body p-0 schedule-body">
+                                <div class="schedule-preview">
+                                    <div class="schedule-preview-toolbar">
+                                        <div class="schedule-tabs" role="tablist" aria-label="日程清单分类">
+                                            <button class="schedule-tab active" type="button"
+                                                data-schedule-filter="pending">
+                                                未完成
+                                            </button>
+                                            <button class="schedule-tab" type="button" data-schedule-filter="done">
+                                                已完成
+                                            </button>
+                                        </div>
+                                        <button id="openScheduleAdd" class="btn btn-sm btn-primary schedule-add-btn"
+                                            type="button">
+                                            <i class="fas fa-plus" aria-hidden="true"></i>
+                                            添加事项
+                                        </button>
+                                    </div>
+                                    <ul id="scheduleList" class="schedule-list" aria-live="polite"></ul>
+                                    <div id="scheduleEmpty" class="schedule-empty">暂无待办事项</div>
+                                </div>
                             </div>
-                            <div class="card-footer py-2 text-muted small notebook-footer">
-                                <span id="noteStatus">内容自动保存</span>
-                                <div class="notebook-actions">
-                                    <button id="viewNotebookFull" class="btn btn-sm btn-outline-primary">
+                            <div class="card-footer py-2 text-muted small notebook-footer schedule-footer">
+                                <span id="scheduleStatus">未关联本地文件，暂存浏览器</span>
+                                <div class="notebook-actions schedule-actions">
+                                    <button id="viewScheduleFull" class="btn btn-sm btn-outline-primary" type="button">
                                         全文
                                     </button>
-                                    <button id="linkNoteBtn" class="btn btn-sm btn-outline-success">
-                                        关联
-                                    </button>
-                                    <button id="clearNotebook" class="btn btn-sm btn-outline-danger">
-                                        清空内容
+                                    <button id="linkScheduleBtn" class="btn btn-sm btn-outline-success" type="button">
+                                        关联本地文件
                                     </button>
                                 </div>
                             </div>
@@ -458,21 +526,62 @@
                     </div>
                 </div>
 
-                <div id="notebookFullOverlay" class="notebook-full-overlay" aria-hidden="true" hidden>
-                    <div class="notebook-full-dialog" role="dialog" aria-modal="true"
-                        aria-labelledby="notebookFullTitle">
-                        <div class="notebook-full-header">
-                            <h5 id="notebookFullTitle" class="mb-0"><i class="fas fa-sticky-note"></i> 待办事项全文</h5>
-                            <button id="closeNotebookFull" class="notebook-full-close" type="button" aria-label="关闭">
+                <div id="scheduleAddOverlay" class="schedule-full-overlay schedule-add-overlay" aria-hidden="true"
+                    hidden>
+                    <div class="schedule-add-dialog" role="dialog" aria-modal="true" aria-labelledby="scheduleAddTitle">
+                        <div class="schedule-full-header">
+                            <h5 id="scheduleAddTitle" class="mb-0"><i class="fas fa-plus"></i> 添加事项</h5>
+                            <button id="closeScheduleAdd" class="schedule-full-close" type="button" aria-label="关闭">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
-                        <textarea id="notebookFullContent" class="notebook-full-content"
-                            placeholder="在这里编辑待办事项..."></textarea>
+                        <form id="scheduleForm" class="schedule-add-form">
+                            <label class="schedule-field-label" for="scheduleInput">事项内容</label>
+                            <textarea id="scheduleInput" class="form-control schedule-add-text" placeholder="写下待办事项..."
+                                autocomplete="off" maxlength="200" required></textarea>
+                            <label class="schedule-field-label" for="scheduleDeadline">截止日期</label>
+                            <input id="scheduleDeadline" class="form-control schedule-date-input" type="date">
+                            <div class="schedule-add-actions">
+                                <button id="submitScheduleItem" class="btn btn-primary schedule-add-btn" type="submit">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                    添加
+                                </button>
+                                <button id="cancelScheduleAdd" class="btn btn-outline-secondary" type="button">
+                                    取消
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
-                <script src="./wp-includes/js/textbook.js?v=20260602-fullnote"></script>
+                <div id="scheduleFullOverlay" class="schedule-full-overlay" aria-hidden="true" hidden>
+                    <div class="schedule-full-dialog" role="dialog" aria-modal="true"
+                        aria-labelledby="scheduleFullTitle">
+                        <div class="schedule-full-header">
+                            <h5 id="scheduleFullTitle" class="mb-0"><i class="fas fa-list-check"></i> 日程清单全文</h5>
+                            <button id="closeScheduleFull" class="schedule-full-close" type="button" aria-label="关闭">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="schedule-full-body">
+                            <div class="schedule-full-toolbar">
+                                <div class="schedule-tabs" role="tablist" aria-label="日程清单分类">
+                                    <button class="schedule-tab active" type="button" data-schedule-filter="pending">
+                                        未完成
+                                    </button>
+                                    <button class="schedule-tab" type="button" data-schedule-filter="done">
+                                        已完成
+                                    </button>
+                                </div>
+                                <span id="scheduleFullSummary" class="schedule-summary">0 项待完成</span>
+                            </div>
+                            <ul id="scheduleFullList" class="schedule-list schedule-full-list" aria-live="polite"></ul>
+                            <div id="scheduleFullEmpty" class="schedule-empty">暂无待办事项</div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="./wp-includes/js/schedule-list.js?v=20260604-schedule-edit-dblclick"></script>
 
                 <!-- ********************************** -->
 
@@ -531,8 +640,7 @@
     <script src="./nav/static/js/theia-sticky-sidebar.js"></script>
     <script src='./nav/static/js/lazyload.min.js' id='lazyload-js'></script>
     <script src='./nav/static/js/app.min.js' id='appjs-js'></script>
-    <!-- 引入待办事项同步逻辑 -->
-    <script src="./wp-includes/js/notebook-sync.js?v=20260602-fullnote"></script>
+    <!-- Notebook 已按要求从页面注释掉，同步脚本暂不加载。 -->
 
 </body>
 
