@@ -21,7 +21,7 @@
         media='all'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="./nav/static/css/custom.css?v=20260604-schedule-height-500">
+    <link rel="stylesheet" href="./nav/static/css/custom.css?v=20260615-schedule-add-zindex">
 
 </head>
 
@@ -565,12 +565,20 @@
                         </div>
                         <div class="schedule-full-body">
                             <div class="schedule-full-toolbar">
-                                <div class="schedule-tabs" role="tablist" aria-label="日程清单分类">
-                                    <button class="schedule-tab active" type="button" data-schedule-filter="pending">
-                                        未完成
-                                    </button>
-                                    <button class="schedule-tab" type="button" data-schedule-filter="done">
-                                        已完成
+                                <div class="schedule-full-tools-left">
+                                    <div class="schedule-tabs" role="tablist" aria-label="日程清单分类">
+                                        <button class="schedule-tab active" type="button" data-schedule-filter="pending">
+                                            未完成
+                                        </button>
+                                        <button class="schedule-tab" type="button" data-schedule-filter="done">
+                                            已完成
+                                        </button>
+                                    </div>
+                                    <button id="openScheduleFullAdd"
+                                        class="btn btn-sm btn-primary schedule-add-btn schedule-full-add-btn"
+                                        type="button">
+                                        <i class="fas fa-plus" aria-hidden="true"></i>
+                                        添加事项
                                     </button>
                                 </div>
                                 <span id="scheduleFullSummary" class="schedule-summary">0 项待完成</span>
@@ -581,7 +589,7 @@
                     </div>
                 </div>
 
-                <script src="./wp-includes/js/schedule-list.js?v=20260604-schedule-merge-link"></script>
+                <script src="./wp-includes/js/schedule-list.js?v=20260615-schedule-full-add"></script>
 
                 <!-- ********************************** -->
 
@@ -620,7 +628,7 @@
         </div>
         <div class="footer-inner text-center text-light my-3" style="color: #f8f9fa45!important;">
             <div class="footer-text">
-                欢迎分享有趣的网站，联系邮箱：zhiqiang-ma@hotmail.com
+                欢迎分享有趣的网站，联系邮箱：zhiqiang.ma97@gmail.com
             </div>
             <div class="footer-text">
                 Copyright © 2024-<span id="currentYear"></span> 学术星航 designed by <a href="https://github.com/sherlma23"

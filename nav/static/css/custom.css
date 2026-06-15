@@ -469,6 +469,10 @@ body {
     margin-top: 6px;
 }
 
+.schedule-full-overlay.schedule-add-overlay {
+    z-index: 1120;
+}
+
 .schedule-full-overlay {
     display: none;
     position: fixed;
@@ -539,6 +543,13 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+}
+
+.schedule-full-tools-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
 }
 
 .schedule-full-list {
@@ -634,6 +645,12 @@ body {
     .schedule-full-toolbar {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .schedule-full-tools-left {
+        align-items: stretch;
+        flex-direction: column;
+        width: 100%;
     }
 
     .schedule-full-list {

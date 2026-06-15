@@ -5,6 +5,21 @@ Changed
 Fixed
 
 
+<span style="color: #d35400;">[0.3.5] - 2026-06-15</span>
+
+Added
+
+* 日程清单全文模式下，在未完成 / 已完成分类按钮旁添加“添加事项”按钮，复用现有添加事项弹窗。
+
+Changed
+
+* 将首页页脚联系邮箱更新为 `zhiqiang.ma97@gmail.com`。
+
+Fixed
+
+* 修复从日程清单全文模式打开添加事项弹窗时，弹窗层级可能被全文弹窗遮挡的问题。
+
+
 <span style="color: #d35400;">[0.3.4] - 2026-06-04</span>
 
 Added

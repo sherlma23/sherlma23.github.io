@@ -8,6 +8,7 @@
     const summary = document.getElementById('scheduleSummary');
     const statusSpan = document.getElementById('scheduleStatus');
     const openAddBtn = document.getElementById('openScheduleAdd');
+    const openFullAddBtn = document.getElementById('openScheduleFullAdd');
     const addOverlay = document.getElementById('scheduleAddOverlay');
     const closeAddBtn = document.getElementById('closeScheduleAdd');
     const cancelAddBtn = document.getElementById('cancelScheduleAdd');
@@ -23,7 +24,7 @@
     const filterTabs = Array.from(document.querySelectorAll('[data-schedule-filter]'));
 
     if (!form || !input || !deadlineInput || !list || !emptyState || !summary || !statusSpan ||
-        !openAddBtn || !addOverlay || !closeAddBtn || !cancelAddBtn || !addTitle || !submitBtn || !viewFullBtn ||
+        !openAddBtn || !openFullAddBtn || !addOverlay || !closeAddBtn || !cancelAddBtn || !addTitle || !submitBtn || !viewFullBtn ||
         !fullOverlay || !fullList || !fullEmptyState || !fullSummary || !closeFullBtn ||
         !linkBtn || !filterTabs.length) {
         return;
@@ -839,6 +840,7 @@
     }
 
     openAddBtn.addEventListener('click', openAddModal);
+    openFullAddBtn.addEventListener('click', openAddModal);
     closeAddBtn.addEventListener('click', closeAddModal);
     cancelAddBtn.addEventListener('click', closeAddModal);
 
