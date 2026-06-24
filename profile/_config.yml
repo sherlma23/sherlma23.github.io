@@ -12,7 +12,7 @@ title                    : "Homepage"
 title_separator          : "-"
 name                     : &name "Zhiqiang Ma"
 description              : &description "personal description"
-url                      : https://sherlma23.github.io/profile # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://sherlma.top # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : /profile # the subpath of your site, e.g. "/blog"
 repository               : "sherlma23/sherlma23.github.io"
 
