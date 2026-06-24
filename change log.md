@@ -1,9 +1,23 @@
 <span style="color: #d35400;">[主版本号.次版本号.修订号] - xxxx-xx-xx</span>
 
+
+
+
+<span style="color: #d35400;">[0.3.6] - 2026-06-24</span>
+
 Added
+
+* 添加 GitHub Pages Actions 部署流程，根目录导航站保留为静态站点，`profile` 目录单独构建为个人主页并发布到 `/profile/`。
+* 将 Jekyll 风格个人主页接入导航站，支持通过“个人主页”入口访问。
+
 Changed
+
+* 将 `bookmark.html` 中个人主页入口改为站内路径 `profile/`。
+* 调整 `profile/_config.yml` 的 `baseurl` 和仓库配置，适配 GitHub Pages 子路径部署。
+
 Fixed
 
+* 修复 GitHub Pages 默认从仓库根目录构建时，误处理 `profile/assets/css/main.scss` 导致 Sass 无法导入 `vendor/breakpoint/breakpoint` 的构建错误。
 
 <span style="color: #d35400;">[0.3.5] - 2026-06-15</span>
 
