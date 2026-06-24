@@ -13,8 +13,8 @@ Fujian Normal University, College of Computer and Cyber Security, 350117
 
 地址：福建省福州市闽侯县上街镇乌龙江中大道18号福建师范大学旗山校区
 
-[CV](https://zhiqiang620.github.io/files/cv-EN.pdf)
-[简历](https://zhiqiang620.github.io/files/cv-CN.pdf)
+[CV](https://sherlma23.github.io/profile/files/cv-EN.pdf)
+[简历](https://sherlma23.github.io/profile/files/cv-CN.pdf)
 
 Education
 ======
