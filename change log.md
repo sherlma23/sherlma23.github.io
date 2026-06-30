@@ -1,7 +1,21 @@
 <span style="color: #d35400;">[主版本号.次版本号.修订号] - xxxx-xx-xx</span>
 
+Added \
+Changed \
+Fixed \
+Deleted
 
 
+<span style="color: #d35400;">[0.3.7] - 2026-06-30</span>
+
+Added
+
+* index.html 和 bookmark.html 常用搜索栏加入 DBLP 的链接
+* 在线工具添加 SEAGM 网站的链接
+
+Deleted
+
+* index.html 常用搜索栏删除 Semantic Scholar 的链接
 
 <span style="color: #d35400;">[0.3.6] - 2026-06-24</span>
 

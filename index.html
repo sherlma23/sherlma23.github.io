@@ -123,10 +123,7 @@
                                 <li><input hidden="" type="radio" name="type" id="type-sogo1"
                                         value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label
                                         for="type-sogo"><span class="text-muted">搜狗</span></label></li>
-                                <li><input hidden="" type="radio" name="type" id="type-semantic1"
-                                        value="https://www.semanticscholar.org/search?q="
-                                        data-placeholder="Semantic Scholar"><label for="type-semantic1"><span
-                                            class="text-muted">Semantic</span></label></li>
+
                                 <li><input hidden="" type="radio" name="type" id="type-googlescholar1"
                                         value="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C5&q="
                                         data-placeholder="Google Scholar"><label for="type-googlescholar1"><span
@@ -135,6 +132,9 @@
                                         value="https://kns.cnki.net/kns8s/defaultresult/index?crossids=YSTT4HG0%2CLSTPFY1C%2CJUP3MUPD%2CMPMFIG1A%2CWQ0UVIAA%2CBLZOG7CK%2CEMRPGLPA%2CPWFIRAGL%2CNLBO1Z6R%2CNN3FJMUV&korder=SU&kw="
                                         data-placeholder="知网搜索"><label for="type-zhiwang1"><span
                                             class="text-muted">知网</span></label></li>
+                                <li><input hidden="" type="radio" name="type" id="type-dblp1"
+                                        value="https://dblp.org/search?q=" data-placeholder="DBLP"><label
+                                        for="type-dblp1"><span class="text-muted">DBLP</span></label></li>
                             </ul>
                         </div>
                         <div class="search-group group-b ">
@@ -567,7 +567,8 @@
                             <div class="schedule-full-toolbar">
                                 <div class="schedule-full-tools-left">
                                     <div class="schedule-tabs" role="tablist" aria-label="日程清单分类">
-                                        <button class="schedule-tab active" type="button" data-schedule-filter="pending">
+                                        <button class="schedule-tab active" type="button"
+                                            data-schedule-filter="pending">
                                             未完成
                                         </button>
                                         <button class="schedule-tab" type="button" data-schedule-filter="done">
