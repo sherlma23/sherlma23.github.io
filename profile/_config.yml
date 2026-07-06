@@ -21,14 +21,14 @@ repository               : "sherlma23/sherlma23.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : # "zhiqiang.png"
+  avatar           : "zhiqiangma01.jpg"
   name             : "Zhiqiang Ma (马志强)"
-  pronouns         : # example: "she/her"  
+  pronouns         : # "he/his"  
   bio              : "PhD Candidate, research on AKE, PAKE, PKE"
   location         : "Fujian, China"
   employer         : "Fujian Normal University"
-  uri              : "https://sherlma23.github.io" 
-  nav              : "/nav/"
+  uri              : # "https://sherlma23.github.io" 
+  nav              :  "https://sherlma23.github.io"
   email            : "zhiqiang.ma97@gmail.com" 
 
   # Academic websites
