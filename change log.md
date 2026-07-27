@@ -6,6 +6,24 @@ Fixed \
 Deleted
 
 
+<span style="color: #d35400;">[0.3.8] - 2026-07-27</span>
+
+Changed
+
+* `bookmark.html` 的网站卡片改为根据 URL 自动生成稳定的前端 ID，并支持通过 `siteId` 手动指定。
+* 将访问统计编号独立为可选的 `statsId`；未配置时不发送统计请求，为后续接入自有统计服务保留接口。
+* 将 `efficiencyTools` 的 16 条网址合并到 `siteGroups` 的 `efficiency-tools-container`，统一网址数据格式和渲染流程。
+
+Fixed
+
+* 修复网站卡片共用相同编号时，最近访问列表可能错误匹配或批量删除卡片的问题。
+* 避免未启用访问统计时继续向外部 WordPress 接口发送无效统计请求。
+
+Deleted
+
+* 删除网站卡片数据中不再使用的旧 `id` 字段。
+* 删除独立的 `efficiencyTools` 数组及其额外合并渲染代码。
+
 <span style="color: #d35400;">[0.3.7] - 2026-06-30</span>
 
 Added

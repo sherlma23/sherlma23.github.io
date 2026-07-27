@@ -171,14 +171,18 @@
         }
         return false;
     });
-    //未开启详情页计算访客方法
-    $(document).on('click', '.url-card a.is-views[data-id]', function() {
+    // 访问统计：只有卡片配置了 statsId 时才发送请求。
+    $(document).on('click', '.url-card a[data-stats-id]', function() {
+        var statsId = $(this).attr('data-stats-id');
+        if (!statsId) {
+            return;
+        }
         $.ajax({
             type:"GET",
             url:theme.ajaxurl,
             data:{
                 action:'io_postviews',
-                postviews_id:$(this).data('id'),
+                postviews_id:statsId,
             },
             cache:false,
         });
