@@ -6,6 +6,17 @@ Fixed \
 Deleted
 
 
+<span style="color: #d35400;">[0.3.9] - 2026-11-04</span>
+
+Changed
+
+* 个人主页的 `base_path` 改为基于 `/profile` 的站内路径，使样式、图片、脚本和导航链接跟随当前访问域名加载。
+* 将个人主页的站点域名配置统一为 `www.sherlma.top`；分享、评论和 SEO 元信息继续使用完整网址。
+
+Fixed
+
+* 修复从 `www.sherlma.top` 或 GitHub Pages 域名访问个人主页时，资源被指向 `sherlma.top` 而可能导致页面失去样式、头像无法显示的问题。
+
 <span style="color: #d35400;">[0.3.8] - 2026-07-27</span>
 
 Changed
