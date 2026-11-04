@@ -2030,8 +2030,8 @@
                                 <div class="card-body">
                                     <div class="url-content d-flex align-items-center">
                                         <div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">
-                                            <img class="lazy" src="${cardData.img}" data-src="${cardData.img}"
-                                                onerror="javascript:this.src='${cardData.img}'" alt="${alt}">
+                                            <img src="${cardData.img}" width="40" height="40" loading="lazy" decoding="async" style="object-fit:contain"
+                                                onerror="this.onerror=null;this.src='./favicon.ico'" alt="${alt}">
                                         </div>
                                         <div class="url-info flex-fill">
                                             <div class="text-sm overflowClip_1">
