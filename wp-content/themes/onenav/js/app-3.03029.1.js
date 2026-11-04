@@ -560,19 +560,12 @@
     function addSite(site,isLive,isHeader) {
         if(!isLive) $('.customize_nothing').remove();
         else $('.customize_nothing_click').remove(); 
-        var url_f,matches = site.url.match(/^(?:https?:\/\/)?((?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6})/);
-        if (!matches || matches.length < 2) url_f=site.url; 
-        else {
-            url_f=matches[0];
-            if(theme.urlformat == '1')
-                url_f = matches[1];
-        } 
         var newSite = $('<div class="url-card  col-6 '+theme.classColumns+' col-xxl-10a">'+
             '<div class="url-body mini"><a href="'+site.url+'" target="_blank" class="card new-site mb-3 site-'+site.id+'" data-id="'+site.id+'" data-url="'+site.url+'" data-toggle="tooltip" data-placement="bottom" title="'+site.name+'" rel="external nofollow">'+
                 '<div class="card-body" style="padding:0.4rem 0.5rem;">'+
                 '<div class="url-content d-flex align-items-center">'+
                     '<div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">'+
-                        '<img src="' + theme.icourl + url_f + theme.icopng + '">'+
+                        '<img src="./favicon.ico">'+
                     '</div>'+
                     '<div class="url-info flex-fill">'+
                         '<div class="text-sm overflowClip_1">'+
@@ -680,20 +673,13 @@
                 showAlert(response);
                 return;
             }
-            var url_f,matches = url.match(/^(?:https?:\/\/)?((?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6})/);
-            if (!matches || matches.length < 2) url_f=url; 
-            else {
-                url_f=matches[0];
-                if(theme.urlformat == '1')
-                    url_f = matches[1];
-            } 
             var id = response.id;
             var newSite = $('<div id="url-'+id+'" class="url-card sortable col-6 '+theme.classColumns+' col-xxl-10a">'+
             '<div class="url-body mini"><a href="'+url+'" target="_blank" class="card new-site mb-3 site-'+id+'" data-id="'+id+'" data-url="'+url+'" data-toggle="tooltip" data-placement="bottom" title="'+name+'" rel="external nofollow">'+
                 '<div class="card-body" style="padding:0.4rem 0.5rem;">'+
                 '<div class="url-content d-flex align-items-center">'+
                     '<div class="url-img rounded-circle mr-2 d-flex align-items-center justify-content-center">'+
-                        '<img src="' + theme.icourl + url_f + theme.icopng + '">'+
+                        '<img src="./favicon.ico">'+
                     '</div>'+
                     '<div class="url-info flex-fill">'+
                         '<div class="text-sm overflowClip_1">'+

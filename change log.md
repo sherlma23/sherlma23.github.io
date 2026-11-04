@@ -18,6 +18,7 @@ Fixed
 
 * 修复从 `www.sherlma.top` 或 GitHub Pages 域名访问个人主页时，资源被指向 `sherlma.top` 而可能导致页面失去样式、头像无法显示的问题。
 * 修复书签卡片图片加载失败时反复请求同一地址的问题：取消错误回调后仅尝试一次本地 `favicon.ico`。
+* 将无法正常加载的 `www.a.cool` 和 `api.iowen.cn` 图标请求替换为本地 `favicon.ico`，消除相关网络错误。
 
 <span style="color: #d35400;">[0.3.8] - 2026-07-27</span>
 
