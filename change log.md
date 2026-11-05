@@ -6,6 +6,22 @@ Fixed \
 Deleted
 
 
+<span style="color: #d35400;">[0.3.10] - 2026-11-05</span>
+
+Changed
+
+* 首页自定义网址的图标改为直接尝试目标网站的 `/favicon.ico`，添加网址时不再依次请求多个外部图标服务；已保存的旧图标服务地址也在显示时改用目标网站图标。
+
+Fixed
+
+* 首页及 `nav/index.html` 的固定图标加载失败时仅回退一次本地 `favicon.ico`；自定义网址图标也使用同样的回退方式，避免请求不存在的 `ico/default.png` 和重复请求。
+* 自定义网址卡片改用 DOM 属性和 `textContent` 写入名称、网址及图标，只接受 HTTP(S) 网址，并在本地存储数据损坏时避免整块功能中断。
+* 去除首页页脚重复的 `footer-tools` ID。
+
+Deleted
+
+* 注释首页、书签页和 `nav/index.html` 中未使用的和风天气配置及占位脚本，移除首页页脚的 2345 天气 iframe。
+
 <span style="color: #d35400;">[0.3.9] - 2026-11-04</span>
 
 Changed

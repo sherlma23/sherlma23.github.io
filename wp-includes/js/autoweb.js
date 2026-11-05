@@ -12,40 +12,45 @@ const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
 
 // 从 LocalStorage 加载已保存的网站
-let websites = JSON.parse(localStorage.getItem('websites')) || [];
+let websites = [];
+try {
+    const savedWebsites = JSON.parse(localStorage.getItem('websites') || '[]');
+    websites = Array.isArray(savedWebsites) ? savedWebsites : [];
+} catch (error) {
+    console.warn('已保存的网址数据无法读取:', error);
+}
 let currentIndex = null; // 当前编辑或删除的网站索引
 let isEditMode = false; // 编辑模式状态
 const MAX_WEBSITES = 12; // 最大网站数量
+const FALLBACK_ICON = new URL('./favicon.ico', document.baseURI).href;
 
-// 自动获取网站图标
-async function fetchWebsiteIcon(url) {
+function getHttpUrl(value, base) {
+    if (typeof value !== 'string' || !value.trim()) return null;
     try {
-        // 从 URL 提取域名
-        const domain = new URL(url).hostname;
-
-        // 尝试多种图标获取方式
-        const iconUrls = [
-            `https://www.google.com/s2/favicons?domain=${domain}&sz=64`,
-            `https://favicon.twenty.com/${domain}`,
-            `https://icons.duckduckgo.com/ip3/${domain}.ico`,
-            `https://${domain}/favicon.ico`
-        ];
-
-        // 测试每个图标URL是否可用
-        for (const iconUrl of iconUrls) {
-            try {
-                const response = await fetch(iconUrl, { mode: 'no-cors' });
-                return iconUrl;
-            } catch (e) {
-                continue;
-            }
-        }
-
-        return './ico/default.png';
+        const url = base ? new URL(value.trim(), base) : new URL(value.trim());
+        return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : null;
     } catch (error) {
-        console.error('获取网站图标失败:', error);
-        return './ico/default.png';
+        return null;
     }
+}
+
+// 直接使用目标网站的图标；加载失败时由图片错误回调切换到本地图标。
+function getAutomaticIconUrl(url) {
+    const iconUrl = new URL('/favicon.ico', url);
+    if (document.location.protocol === 'https:' && iconUrl.protocol === 'http:') {
+        iconUrl.protocol = 'https:';
+    }
+    return iconUrl.href;
+}
+
+function getSavedIconUrl(website, url) {
+    const savedIcon = typeof website.icon === 'string' ? website.icon.trim() : '';
+    const legacyService = /^https:\/\/(?:www\.google\.com\/s2\/favicons|favicon\.twenty\.com\/|icons\.duckduckgo\.com\/ip3\/)/i;
+    if (savedIcon && savedIcon !== './ico/default.png' && !legacyService.test(savedIcon)) {
+        const validIcon = getHttpUrl(savedIcon, document.baseURI);
+        if (validIcon) return validIcon;
+    }
+    return url ? getAutomaticIconUrl(url) : FALLBACK_ICON;
 }
 
 // 渲染网站列表
@@ -59,38 +64,60 @@ function renderWebsites() {
 
         if (i < websites.length) {
             // 已有网站的位置
-            const website = websites[i];
-            const iconUrl = website.icon || './ico/default.png';
+            const website = websites[i] || {};
+            const name = String(website.name || '');
+            const url = getHttpUrl(website.url);
+            const iconUrl = getSavedIconUrl(website, url);
 
             websiteItem.innerHTML = `
-                <a href="${website.url}" target="_blank" title="${website.name}" rel="external nofollow noopener">
+                <a target="_blank" rel="external nofollow noopener">
                     <div class="d-flex mb-2">
                         <div class="sites-icon mx-auto ub-blur-bg">
-                            <img class="lazy" src="${iconUrl}" 
-                                 data-src="${iconUrl}" 
-                                 onerror="javascript:this.src='./ico/default.png'" 
-                                 alt="${website.name}">
+                            <img class="lazy" alt="">
                         </div>
                     </div>
                     <div class="sites-title ub-blur-bg px-2 text-xs overflowClip_1">
-                        <span>${website.name}</span>
+                        <span></span>
                     </div>
                 </a>
                 ${isEditMode ? `
                     <div class="edit-overlay">
-                        <button class="edit-btn" onclick="event.stopPropagation(); openEditPopup(${i})">
+                        <button class="edit-btn" type="button">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); openDeletePopup(${i})">
+                        <button class="delete-btn" type="button">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
                 ` : ''}
             `;
+            const link = websiteItem.querySelector('a');
+            if (url) link.href = url;
+            link.title = name;
+            websiteItem.querySelector('.sites-title span').textContent = name;
+
+            const image = websiteItem.querySelector('img');
+            image.alt = name;
+            image.addEventListener('error', () => {
+                if (image.src !== FALLBACK_ICON) image.src = FALLBACK_ICON;
+            }, { once: true });
+            image.src = iconUrl;
+            image.dataset.src = iconUrl;
+
+            if (isEditMode) {
+                websiteItem.querySelector('.edit-btn').addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    openEditPopup(i);
+                });
+                websiteItem.querySelector('.delete-btn').addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    openDeletePopup(i);
+                });
+            }
         } else {
             // 空位置 - 添加按钮
             websiteItem.innerHTML = `
-                <div class="empty-site" onclick="event.stopPropagation(); ${isEditMode ? `openAddPopup(${i})` : ''}">
+                <div class="empty-site">
                     <div class="d-flex mb-2">
                         <div class="sites-icon mx-auto ub-blur-bg empty-icon">
                             ${isEditMode ? `
@@ -105,6 +132,12 @@ function renderWebsites() {
                     </div>
                 </div>
             `;
+            if (isEditMode) {
+                websiteItem.querySelector('.empty-site').addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    openAddPopup(i);
+                });
+            }
         }
 
         websiteList.appendChild(websiteItem);
@@ -183,44 +216,36 @@ closePopupBtn.addEventListener('click', closePopup);
 cancelDeleteBtn.addEventListener('click', closePopup);
 
 // 添加或编辑网站
-websiteForm.addEventListener('submit', async (e) => {
+websiteForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const websiteName = document.getElementById('websiteName').value;
-    const websiteUrl = document.getElementById('websiteUrl').value;
-    const websiteIcon = document.getElementById('websiteIcon').value;
+    const websiteName = document.getElementById('websiteName').value.trim();
+    const websiteUrlInput = document.getElementById('websiteUrl').value.trim();
+    const websiteIconInput = document.getElementById('websiteIcon').value.trim();
 
     // 验证表单
-    if (!websiteName || !websiteUrl) {
+    if (!websiteName || !websiteUrlInput) {
         websiteForm.classList.add('was-validated');
         return;
     }
 
-    try {
-        new URL(websiteUrl);
-    } catch (error) {
-        alert('请输入有效的URL地址（例如：https://example.com）');
+    const websiteUrl = getHttpUrl(websiteUrlInput);
+    if (!websiteUrl) {
+        alert('请输入以 http:// 或 https:// 开头的有效网址');
         return;
     }
 
-    // 显示加载状态
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = '获取图标中...';
-    submitBtn.disabled = true;
+    const customIcon = websiteIconInput ? getHttpUrl(websiteIconInput, document.baseURI) : null;
+    if (websiteIconInput && !customIcon) {
+        alert('请输入有效的图标 URL');
+        return;
+    }
 
     try {
-        let iconUrl = websiteIcon;
-
-        if ((currentIndex === null || currentIndex >= websites.length) && !websiteIcon) {
-            iconUrl = await fetchWebsiteIcon(websiteUrl);
-        } else if (currentIndex !== null && !websiteIcon) {
-            iconUrl = await fetchWebsiteIcon(websiteUrl);
-        }
-
         const websiteData = {
             name: websiteName,
             url: websiteUrl,
-            icon: iconUrl
+            icon: customIcon || getAutomaticIconUrl(websiteUrl)
         };
 
         if (currentIndex === null || currentIndex >= websites.length) {
@@ -242,9 +267,6 @@ websiteForm.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error('保存网站失败:', error);
         alert('保存失败，请重试');
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
     }
 });
 
